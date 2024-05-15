@@ -9,6 +9,8 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import at.ac.univie.hci.viennalostandfound.chat.ChatOverviewFragment;
+
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 // Add Home Screen Fragment
                 return true;
 
-                // Add missing screens
+            // Add missing screens here
 
             case R.id.chat:
                 getSupportFragmentManager()

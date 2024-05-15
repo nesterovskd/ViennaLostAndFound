@@ -1,11 +1,11 @@
-package at.ac.univie.hci.viennalostandfound;
-
+package at.ac.univie.hci.viennalostandfound.chat;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
+
+import at.ac.univie.hci.viennalostandfound.R;
 
 public class ChatActivity extends AppCompatActivity {
     private List<String> messages;
@@ -30,6 +32,8 @@ public class ChatActivity extends AppCompatActivity {
         TextView headerTextView = findViewById(R.id.chat_header);
         ListView messagesList = findViewById(R.id.messages_list);
         EditText messageInput = findViewById(R.id.message_input);
+        ImageView profilePicture = findViewById(R.id.profile_picture);
+
         Button sendButton = findViewById(R.id.send_button);
         Button exitButton = findViewById(R.id.exit_button);
 
@@ -40,6 +44,10 @@ public class ChatActivity extends AppCompatActivity {
         // Set header text
         String chatName = getIntent().getStringExtra("chatName");
         headerTextView.setText(chatName);
+
+        // Set profile picture
+        int profilePictureId = getIntent().getIntExtra("profilePictureId", R.drawable.ic_profile_foreground);
+        profilePicture.setImageResource(profilePictureId);
 
         // Load saved messages from specific chatId
         chatId = getIntent().getStringExtra("chatId");

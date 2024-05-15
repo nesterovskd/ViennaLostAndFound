@@ -1,4 +1,4 @@
-package at.ac.univie.hci.viennalostandfound;
+package at.ac.univie.hci.viennalostandfound.chat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,12 +9,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import at.ac.univie.hci.viennalostandfound.R;
+import at.ac.univie.hci.viennalostandfound.user.User;
+import at.ac.univie.hci.viennalostandfound.user.UserAdapter;
 
 public class ChatOverviewFragment extends Fragment {
 
@@ -33,18 +36,29 @@ public class ChatOverviewFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ListView chatsList = view.findViewById(R.id.chats_list);
-        List<String> dummyChats = new ArrayList<>(Arrays.asList("Chat 1", "Chat 2", "Chat 3"));
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, dummyChats);
+
+        // Add users
+        List<User> usersList = new ArrayList<>(
+                Arrays.asList(
+                        new User("Ethan Calloway", R.drawable.user2),
+                        new User("Aria Sterling", R.drawable.user1),
+                        new User("Nolan Thorne", R.drawable.user3)
+                )
+        );
+        UserAdapter adapter = new UserAdapter(requireContext(), usersList);
         chatsList.setAdapter(adapter);
 
         chatsList.setOnItemClickListener((parent, view1, position, id) -> {
             Intent intent = new Intent(getActivity(), ChatActivity.class);
 
-            // Set chatId
-            intent.putExtra("chatId", "Chat " + position+1);
+            // Pass chat ID
+            intent.putExtra("chatId", String.valueOf(position));
 
-            // Set chatName
-            intent.putExtra("chatName", dummyChats.get(position));
+            // Pass name of the chat
+            intent.putExtra("chatName", usersList.get(position).getName());
+
+            // Pass the profile picture ID
+            intent.putExtra("profilePictureId", usersList.get(position).getProfilePictureId());
 
             startActivity(intent);
         });
