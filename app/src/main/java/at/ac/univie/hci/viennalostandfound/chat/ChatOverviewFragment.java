@@ -15,11 +15,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import at.ac.univie.hci.viennalostandfound.MainActivity;
 import at.ac.univie.hci.viennalostandfound.R;
 import at.ac.univie.hci.viennalostandfound.user.User;
 import at.ac.univie.hci.viennalostandfound.user.UserAdapter;
 
 public class ChatOverviewFragment extends Fragment {
+    private List<User> usersList;
 
     public ChatOverviewFragment() {
         // require a empty public constructor
@@ -37,14 +39,13 @@ public class ChatOverviewFragment extends Fragment {
 
         ListView chatsList = view.findViewById(R.id.chats_list);
 
-        // Add users
-        List<User> usersList = new ArrayList<>(
-                Arrays.asList(
-                        new User("Ethan Calloway", R.drawable.user2),
-                        new User("Aria Sterling", R.drawable.user1),
-                        new User("Nolan Thorne", R.drawable.user3)
-                )
-        );
+        // Get User Data
+        if (getArguments() != null) {
+            usersList = (List<User>) getArguments().getSerializable("usersList");
+        } else {
+            usersList = new ArrayList<>();
+        }
+
         UserAdapter adapter = new UserAdapter(requireContext(), usersList);
         chatsList.setAdapter(adapter);
 

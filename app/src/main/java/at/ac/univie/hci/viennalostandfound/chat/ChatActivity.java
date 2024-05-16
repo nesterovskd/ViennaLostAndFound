@@ -2,14 +2,14 @@ package at.ac.univie.hci.viennalostandfound.chat;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -17,12 +17,15 @@ import java.util.HashSet;
 import java.util.List;
 
 import at.ac.univie.hci.viennalostandfound.R;
+import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
+import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class ChatActivity extends AppCompatActivity {
     private List<String> messages;
-    private ArrayAdapter<String> adapter;
+    private ChatMessageAdapter adapter;
     private SharedPreferences sharedPreferences;
     private String chatId;
+    private User loggedInUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,22 +35,23 @@ public class ChatActivity extends AppCompatActivity {
         TextView headerTextView = findViewById(R.id.chat_header);
         ListView messagesList = findViewById(R.id.messages_list);
         EditText messageInput = findViewById(R.id.message_input);
-        ImageView profilePicture = findViewById(R.id.profile_picture);
+        ShapeableImageView otherUserprofilePicture = findViewById(R.id.user_profile_picture);
 
         Button sendButton = findViewById(R.id.send_button);
         Button exitButton = findViewById(R.id.exit_button);
 
         messages = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, messages);
+        loggedInUser = LoggedInUser.getLoggedInUser();
+        adapter = new ChatMessageAdapter(this, loggedInUser, messages);
         messagesList.setAdapter(adapter);
 
         // Set header text
         String chatName = getIntent().getStringExtra("chatName");
         headerTextView.setText(chatName);
 
-        // Set profile picture
+        // Set other user profile picture
         int profilePictureId = getIntent().getIntExtra("profilePictureId", R.drawable.ic_profile_foreground);
-        profilePicture.setImageResource(profilePictureId);
+        otherUserprofilePicture.setImageResource(profilePictureId);
 
         // Load saved messages from specific chatId
         chatId = getIntent().getStringExtra("chatId");
@@ -58,7 +62,12 @@ public class ChatActivity extends AppCompatActivity {
         sendButton.setOnClickListener(v -> {
             String message = messageInput.getText().toString();
             if (!message.isEmpty()) {
-                messages.add(message);
+                if(loggedInUser != null) {
+                    String userMessage = loggedInUser.getName() + ": \n" + message;
+                    messages.add(userMessage);
+                } else {
+                    messages.add(message);
+                }
                 adapter.notifyDataSetChanged();
                 saveMessages();
                 messageInput.setText("");
