@@ -9,9 +9,9 @@
         android:title="Search"
         android:icon="@drawable/ic_search_foreground"/>
     <item
-        android:id="@+id/add"
-        android:title="Add"
-        android:icon="@drawable/ic_add_foreground"/>
+        android:id="@+id/insert_item"
+        android:title="Insert Item"
+        android:icon="@drawable/ic_insert_item_foreground"/>
     <item
         android:id="@+id/chat"
         android:title="Chat"

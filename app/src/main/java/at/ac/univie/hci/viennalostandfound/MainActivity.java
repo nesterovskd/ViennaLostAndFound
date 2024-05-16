@@ -27,21 +27,27 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        // Set start-screen
+
+        // Set start-Screen
         bottomNavigationView.setSelectedItemId(R.id.home);
 
         // Create Dummy Users
-        usersList = new ArrayList<>(
-                Arrays.asList(
-                        new User("Ethan Calloway", "ethan.colloway@gmail.com", R.drawable.user2),
-                        new User("Aria Sterling", "aria.sterling@gmail.com", R.drawable.user1),
-                        new User("Nolan Thorne", "nolan.thorne@gmail.com", R.drawable.user3)
-                )
-        );
+        usersList = generateUsers();
 
         // Set logged-in User
-        User loggedInUser = new User("Peter Griffin", "peter.griffin@gmail.com", R.drawable.loggedin_user);
+        // TODO move this to the login screen
+        User loggedInUser = new User("Test User", "test.user@gmail.com"); // Default Profile Picture
         LoggedInUser.setLoggedInUser(loggedInUser);
+    }
+
+    private List<User> generateUsers() {
+        return new ArrayList<>(
+                Arrays.asList(
+                        new User("Francesca Marino", "francesca.marino@gmail.com", R.drawable.profile_picture_1),
+                        new User("Marcel Meyer", "marcel.meyer@gmail.com", R.drawable.profile_picture_2),
+                        new User("David Sacks", "david.sacks@gmail.com", R.drawable.profile_picture_3)
+                )
+        );
     }
 
     // Initialize fragments
@@ -55,7 +61,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 // Add Home Screen Fragment
                 return true;
 
-            // Add missing screens here
+            case R.id.search:
+                // Add Search Screen Fragment
+                return true;
+
+            case R.id.insert_item:
+                // Add insert Item Screen Fragment
+                return true;
 
             case R.id.chat:
                 // Pass usersList to chatOverviewScreen
@@ -67,6 +79,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                         .beginTransaction()
                         .replace(R.id.flFragment, chatOverviewScreen)
                         .commit();
+                return true;
+
+            case R.id.profile:
+                // Add Profile Screen Fragment
                 return true;
         }
         return false;
