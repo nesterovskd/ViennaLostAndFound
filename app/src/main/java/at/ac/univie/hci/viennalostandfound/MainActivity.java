@@ -9,7 +9,6 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,7 +20,7 @@ import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     private List<User> usersList;
-    private LoggedInUser loggedUser;
+    private User loggedInUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +36,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         // Create Dummy Users
         usersList = generateUsers();
 
-        // Set logged-in User
         // TODO move this to the login screen
-        User loggedInUser = new User("Test User", "test.user@gmail.com"); // Default Profile Picture
+        // Set logged-in User
+        loggedInUser = new User("Test User", "test.user@gmail.com"); // Default Profile Picture
         LoggedInUser.setLoggedInUser(loggedInUser);
     }
 
@@ -54,17 +53,21 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     // Initialize fragments
-    ChatOverviewFragment chatOverviewScreen = new ChatOverviewFragment();
     HomeFragment homeFragment = new HomeFragment();
+    ChatOverviewFragment chatOverviewFragment = new ChatOverviewFragment();
 
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.home:
-                Bundle bundleHome = new Bundle();
-                bundleHome.putSerializable("loggedUser", (Serializable) loggedUser);
-                homeFragment.setArguments(bundleHome);
+
+                // TODO
+                //  Uncomment this and the logged in user is correctly passed to the home screen
+                //  But the bottom tabs disappear when the view updates ???
+                //Bundle bundleHome = new Bundle();
+                //bundleHome.putSerializable("loggedInUser", loggedInUser);
+                //homeFragment.setArguments(bundleHome);
 
                 getSupportFragmentManager()
                         .beginTransaction()
@@ -84,11 +87,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 // Pass usersList to chatOverviewScreen
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("usersList", new ArrayList<>(usersList));
-                chatOverviewScreen.setArguments(bundle);
+                chatOverviewFragment.setArguments(bundle);
 
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.flFragment, chatOverviewScreen)
+                        .replace(R.id.flFragment, chatOverviewFragment)
                         .commit();
                 return true;
 

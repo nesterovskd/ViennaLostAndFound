@@ -6,7 +6,6 @@ import at.ac.univie.hci.viennalostandfound.R;
 
 public class User implements Serializable {
     private String name;
-
     private String emailAddress;
     private int profilePictureId;
 
