@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,7 +39,7 @@ public class HomeFragment extends Fragment {
         if (getArguments() != null) {
             loggedInUser = (User) getArguments().getSerializable("loggedInUser");
         }
-
+    /*
         if (loggedInUser != null) {
             Intent intent = new Intent(getActivity(), HomeActivity.class);
 
@@ -47,5 +48,20 @@ public class HomeFragment extends Fragment {
 
             startActivity(intent);
         }
+        */
+        if (loggedInUser != null) {
+            // Beispiel: Zeigen Sie eine Willkommensnachricht an
+            TextView welcomeTextView = view.findViewById(R.id.textView_Homescreen_Greeting);
+            welcomeTextView.setText("Hello, " + loggedInUser.getName());
+            Button loginButton = view.findViewById(R.id.button_Login_Homescreen);
+            loginButton.setVisibility(View.GONE);
+        }
+        else{
+            TextView welcomeTextView = view.findViewById(R.id.textView_Homescreen_Greeting);
+            welcomeTextView.setText("Hello, stranger");
+            Button loginButton = view.findViewById(R.id.button_Login_Homescreen);
+            loginButton.setVisibility(View.VISIBLE);
+        }
+
     }
 }

@@ -65,9 +65,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 // TODO
                 //  Uncomment this and the logged in user is correctly passed to the home screen
                 //  But the bottom tabs disappear when the view updates ???
-                //Bundle bundleHome = new Bundle();
-                //bundleHome.putSerializable("loggedInUser", loggedInUser);
-                //homeFragment.setArguments(bundleHome);
+                Bundle bundleHome = new Bundle();
+                bundleHome.putSerializable("loggedInUser", loggedInUser);
+                homeFragment.setArguments(bundleHome);
 
                 getSupportFragmentManager()
                         .beginTransaction()

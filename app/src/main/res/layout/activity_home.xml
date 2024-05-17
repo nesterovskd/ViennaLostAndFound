@@ -23,11 +23,11 @@
 
     <TextView
         android:id="@+id/textView_Homescreen_Greeting"
-        android:layout_width="134dp"
-        android:layout_height="32dp"
+        android:layout_width="256dp"
+        android:layout_height="42dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="32dp"
-        android:text="Hello, stranger"
+        android:text=""
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"

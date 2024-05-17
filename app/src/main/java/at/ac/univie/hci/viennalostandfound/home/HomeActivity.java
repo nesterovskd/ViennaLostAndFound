@@ -32,15 +32,18 @@ public class HomeActivity extends AppCompatActivity {
         greetingTextView.setText("Hello, " + loggedInUserName);
         */
 
-        String loggedInUserName = getIntent().getStringExtra("loggedInUserName");
-
+       // String loggedInUserName = getIntent().getStringExtra("loggedInUserName");
+/*
         if (loggedInUserName != null) {
             greetingTextView.setText("Hello, " + loggedInUserName);
             loginButton.setVisibility(View.GONE);
-        } else {
+        }
+        else {
             greetingTextView.setText("Hello, stranger");
             loginButton.setVisibility(View.VISIBLE);
         }
+
+ */
 
         /*
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
