@@ -29,8 +29,6 @@ public class HomeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
-    // The serialized User (loggedInUser) gets passed to MainActivity through this method
-    // TODO maybe it need adjustments ?
     @SuppressLint("SetTextI18n")
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -39,25 +37,15 @@ public class HomeFragment extends Fragment {
         if (getArguments() != null) {
             loggedInUser = (User) getArguments().getSerializable("loggedInUser");
         }
-    /*
-        if (loggedInUser != null) {
-            Intent intent = new Intent(getActivity(), HomeActivity.class);
 
-            // Pass the logged in User Data
-            intent.putExtra("loggedInUserName", loggedInUser.getName());
-
-            startActivity(intent);
-        }
-        */
+        TextView welcomeTextView = view.findViewById(R.id.textView_Homescreen_Greeting);
         if (loggedInUser != null) {
             // Beispiel: Zeigen Sie eine Willkommensnachricht an
-            TextView welcomeTextView = view.findViewById(R.id.textView_Homescreen_Greeting);
             welcomeTextView.setText("Hello, " + loggedInUser.getName());
             Button loginButton = view.findViewById(R.id.button_Login_Homescreen);
             loginButton.setVisibility(View.GONE);
         }
         else{
-            TextView welcomeTextView = view.findViewById(R.id.textView_Homescreen_Greeting);
             welcomeTextView.setText("Hello, stranger");
             Button loginButton = view.findViewById(R.id.button_Login_Homescreen);
             loginButton.setVisibility(View.VISIBLE);
