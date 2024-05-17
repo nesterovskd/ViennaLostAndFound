@@ -9,16 +9,19 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import at.ac.univie.hci.viennalostandfound.chat.ChatOverviewFragment;
+import at.ac.univie.hci.viennalostandfound.home.HomeFragment;
 import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     private List<User> usersList;
+    private LoggedInUser loggedUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +55,21 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     // Initialize fragments
     ChatOverviewFragment chatOverviewScreen = new ChatOverviewFragment();
+    HomeFragment homeFragment = new HomeFragment();
 
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.home:
-                // Add Home Screen Fragment
+                Bundle bundleHome = new Bundle();
+                bundleHome.putSerializable("loggedUser", (Serializable) loggedUser);
+                homeFragment.setArguments(bundleHome);
+
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.flFragment, homeFragment)
+                        .commit();
                 return true;
 
             case R.id.search:
