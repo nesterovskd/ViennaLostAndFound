@@ -49,18 +49,16 @@
                 android:background="@drawable/edittext_bkg"/>
 
 
-
             <Button
+                android:id="@+id/login_button"
                 android:layout_width="300dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:id="@+id/signup_buttom"
                 android:backgroundTint="@color/lavender"
-                android:textSize="18dp"
                 android:text="LOG IN"
-
-                app:cornerRadius = "30dp"/>
+                android:textSize="18dp"
+                app:cornerRadius="30dp" />
 
 
         </LinearLayout>

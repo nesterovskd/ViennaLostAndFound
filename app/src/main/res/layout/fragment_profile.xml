@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/mainbkg"
+    android:background="@color/beige"
     tools:context=".login.ProfileFragment">
    <RelativeLayout
        android:layout_width="match_parent"
@@ -14,7 +14,7 @@
           android:layout_width="match_parent"
           android:layout_height="300dp"
          android:orientation="vertical"
-         android:background="#2196F3">
+         android:background="@color/lavender">
          <androidx.cardview.widget.CardView
              android:layout_width="140dp"
              android:layout_height="140dp"
@@ -23,16 +23,16 @@
             android:foregroundGravity="center_horizontal"
             app:cardCornerRadius="100dp">
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                android:src="@drawable/profile_picture_1"/>
 
          </androidx.cardview.widget.CardView>
          <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-            android:text="User Name"
-            android:textColor="#fff"
+            android:text="Francesca Marino"
+            android:textColor="@color/black"
             android:textSize="23dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
@@ -58,20 +58,22 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                android:layout_weight="1"
+                android:orientation="vertical"
                android:gravity="center">
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                  android:text="BlaBla"
+                  android:text="Found"
                   android:textSize="17dp"
                   android:textColor="#000"/>
+
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                  android:text="LLLL"
-                  android:textSize="27dp"
-                  android:textColor="#2196F3"
-                  android:textStyle="bold"/>
+                   android:text="15"
+                   android:textColor="#2196F3"
+                   android:textSize="27dp"
+                   android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -80,17 +82,19 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:orientation="vertical"
+
                 android:gravity="center">
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="BlaBla"
+                   android:text="Lost"
                    android:textSize="17dp"
                    android:textColor="#000"/>
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="LLLL"
+                   android:text="9"
                    android:textSize="27dp"
                    android:textColor="#2196F3"
                    android:textStyle="bold"/>
@@ -101,23 +105,27 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:orientation="vertical"
+
                 android:gravity="center">
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="BlaBla"
+                   android:text="Appreciation"
                    android:textSize="17dp"
                    android:textColor="#000"/>
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="LLLL"
+                   android:text="12"
                    android:textSize="27dp"
                    android:textColor="#2196F3"
                    android:textStyle="bold"/>
 
 
+
             </LinearLayout>
+
                
          </LinearLayout>
 
@@ -146,7 +154,7 @@
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-         android:text="franceska@gmail.com"
+         android:text="francesca@gmail.com"
          android:textColor="#000"
          android:textSize="18dp"
          android:paddingLeft="15dp"
@@ -194,7 +202,32 @@
           android:layout_gravity="center_vertical"/>
    </LinearLayout>
 
-   
+   <Button
+       android:id="@+id/found_list"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:layout_alignParentLeft="true"
+       android:layout_marginLeft="4dip"
+       android:layout_marginRight="4dip"
+       android:backgroundTint="@color/lavender"
+       android:clickable="true"
+       android:focusable="true"
+       android:text="Found"
+       android:textColor="@color/black" />
+
+   <Button
+       android:id="@+id/lost_list"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:layout_alignParentRight="true"
+       android:layout_centerHorizontal="true"
+       android:layout_marginLeft="4dip"
+       android:layout_marginRight="4dip"
+       android:backgroundTint="@color/lavender"
+       android:clickable="true"
+       android:focusable="true"
+       android:text="Lost"
+       android:textColor="@color/black" />
 
 
 </LinearLayout>
