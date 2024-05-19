@@ -5,8 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -16,20 +16,21 @@ import java.util.List;
 
 import at.ac.univie.hci.viennalostandfound.chat.ChatOverviewFragment;
 import at.ac.univie.hci.viennalostandfound.home.HomeFragment;
-import at.ac.univie.hci.viennalostandfound.login.Login_RegistrationFragment;
+import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
 import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     private List<User> usersList;
     private User loggedInUser;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
         // Set start-Screen
@@ -37,6 +38,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         // Create Dummy Users
         usersList = generateUsers();
+
+        // Temporary
+        loggedInUser = new User("logged in user", "e");
+        LoggedInUser.setLoggedInUser(loggedInUser);
     }
 
     private List<User> generateUsers() {
@@ -53,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     HomeFragment homeFragment = new HomeFragment();
     ChatOverviewFragment chatOverviewFragment = new ChatOverviewFragment();
     LoginRequestFragment loginRequestFragment = new LoginRequestFragment();
-    Login_RegistrationFragment login_RegistrationFragment = new Login_RegistrationFragment();
+    LoginRegistrationFragment loginRegistrationFragment = new LoginRegistrationFragment();
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -103,11 +108,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 // If no user is logged in show login request fragment
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.flFragment, login_RegistrationFragment)
+                        .replace(R.id.flFragment, loginRegistrationFragment)
                         .commit();
                 return true;
         }
         return false;
+    }
+
+    public void navigateToProfile() {
+        bottomNavigationView.setSelectedItemId(R.id.profile);
     }
 
     public List<User> getUsersList() {

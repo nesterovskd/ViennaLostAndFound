@@ -30,8 +30,9 @@ public class UserAdapter extends ArrayAdapter<User> {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_user, parent, false);
         }
 
+        // Set the user info for the chats overview
         User user = getItem(position);
-        ImageView profilePicture = convertView.findViewById(R.id.profile_picture);
+        ImageView profilePicture = convertView.findViewById(R.id.chat_profile_picture);
         TextView chatName = convertView.findViewById(R.id.chat_name);
 
         if (user != null) {

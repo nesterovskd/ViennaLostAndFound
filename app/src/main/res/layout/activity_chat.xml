@@ -37,23 +37,26 @@
         app:shapeAppearanceOverlay="@style/circleImageView"
         app:srcCompat="@drawable/ic_profile_foreground" />
 
-    <Button
+    <ImageButton
         android:id="@+id/exit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:padding="5dp"
-        android:text="Back"
-        app:layout_constraintBottom_toTopOf="@+id/messages_list"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Go back"
+        android:src="@drawable/ic_arrow_back_foreground"
+        app:layout_constraintBottom_toBottomOf="@+id/chat_header"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/chat_header" />
 
     <ListView
         android:id="@+id/messages_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:dividerHeight="0dp"
+        android:divider="@android:color/white"
         app:layout_constraintTop_toBottomOf="@+id/chat_header"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,16 +77,20 @@
             android:id="@+id/message_input"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_weight="1"
+            android:background="@drawable/edit_text_chat"
             android:hint="Type a message"
-            android:inputType="text" />
+            android:inputType="text"
+            android:padding="10dp" />
 
         <Button
             android:id="@+id/send_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
-            android:text="Send"/>
+            android:text="Send" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

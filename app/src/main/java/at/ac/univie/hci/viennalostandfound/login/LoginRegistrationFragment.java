@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
@@ -16,7 +15,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import at.ac.univie.hci.viennalostandfound.R;
 
-public class Login_RegistrationFragment extends Fragment {
+public class LoginRegistrationFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
     private LoginAdapter adapter;
@@ -25,10 +24,7 @@ public class Login_RegistrationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-
-        return inflater.inflate(R.layout.fragment_login__registration, container, false);
-
+        return inflater.inflate(R.layout.fragment_login_registration, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -39,7 +35,7 @@ public class Login_RegistrationFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("Login"));
         tabLayout.addTab(tabLayout.newTab().setText("Signup"));
 
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
         adapter = new LoginAdapter(fragmentManager, getLifecycle());
         viewPager2.setAdapter(adapter);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

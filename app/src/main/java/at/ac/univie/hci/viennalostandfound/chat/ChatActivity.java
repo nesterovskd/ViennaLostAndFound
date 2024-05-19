@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,6 +27,7 @@ public class ChatActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private String chatId;
     private User loggedInUser;
+    private static final String MessageKey = "MessageStorageSet_";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,7 @@ public class ChatActivity extends AppCompatActivity {
         ShapeableImageView otherUserprofilePicture = findViewById(R.id.user_profile_picture);
 
         Button sendButton = findViewById(R.id.send_button);
-        Button exitButton = findViewById(R.id.exit_button);
+        ImageButton exitButton = findViewById(R.id.exit_button);
 
         messages = new ArrayList<>();
         loggedInUser = LoggedInUser.getLoggedInUser();
@@ -80,12 +82,12 @@ public class ChatActivity extends AppCompatActivity {
 
     private void clearMessages() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove("MessageStorageSet_" + chatId);
+        editor.remove(MessageKey + chatId);
         editor.apply();
     }
 
     private void loadMessages() {
-        Set<String> messageStorageSet = sharedPreferences.getStringSet("MessageStorageSet_" + chatId, new HashSet<>());
+        Set<String> messageStorageSet = sharedPreferences.getStringSet(MessageKey + chatId, new HashSet<>());
         messages.addAll(messageStorageSet);
         adapter.notifyDataSetChanged();
     }
@@ -93,7 +95,7 @@ public class ChatActivity extends AppCompatActivity {
     private void saveMessages() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Set<String> messageSet = new HashSet<>(messages);
-        editor.putStringSet("MessageStorageSet_" + chatId, messageSet);
+        editor.putStringSet(MessageKey + chatId, messageSet);
         editor.apply();
     }
 }

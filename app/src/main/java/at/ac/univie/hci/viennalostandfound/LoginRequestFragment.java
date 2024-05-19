@@ -10,6 +10,8 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
+
 public class LoginRequestFragment extends Fragment {
 
     public LoginRequestFragment() {
@@ -26,14 +28,13 @@ public class LoginRequestFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Button loginButton = view.findViewById(R.id.request_login_button);
 
-        // TODO
-        //  redirect to LoginActivity
-        /*
         loginButton.setOnClickListener(v -> {
-            Intent loginIntent = new Intent(getActivity(), LoginActivity.class);
-            startActivity(loginIntent);
+            // Navigate to Profile (Login/Registration section)
+            if (getActivity() instanceof MainActivity) {
+                MainActivity mainActivity = (MainActivity) getActivity();
+                mainActivity.navigateToProfile();
+            }
         });
-         */
     }
 
 }
