@@ -5,20 +5,17 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.google.android.material.tabs.TabLayout;
 
 import at.ac.univie.hci.viennalostandfound.R;
 
-public class Login_RegistrationFragment extends Fragment {
+public class LoginRegistrationFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
     private LoginAdapter adapter;
@@ -27,13 +24,10 @@ public class Login_RegistrationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        return inflater.inflate(R.layout.fragment_login__registration, container, false);
-
+        return inflater.inflate(R.layout.fragment_login_registration, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-
         super.onViewCreated(view, savedInstanceState);
         tabLayout = view.findViewById(R.id.tab_layout);
         viewPager2 = view.findViewById(R.id.view_pager);
@@ -41,7 +35,7 @@ public class Login_RegistrationFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("Login"));
         tabLayout.addTab(tabLayout.newTab().setText("Sign up"));
 
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
         adapter = new LoginAdapter(fragmentManager, getLifecycle());
         viewPager2.setAdapter(adapter);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -68,6 +62,9 @@ public class Login_RegistrationFragment extends Fragment {
             }
         });
 
+
+
     }
+
 
 }
