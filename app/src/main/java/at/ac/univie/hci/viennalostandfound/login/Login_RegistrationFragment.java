@@ -37,7 +37,7 @@ public class Login_RegistrationFragment extends Fragment {
         viewPager2 = view.findViewById(R.id.view_pager);
 
         tabLayout.addTab(tabLayout.newTab().setText("Login"));
-        tabLayout.addTab(tabLayout.newTab().setText("Signup"));
+        tabLayout.addTab(tabLayout.newTab().setText("Sign up"));
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         adapter = new LoginAdapter(fragmentManager, getLifecycle());

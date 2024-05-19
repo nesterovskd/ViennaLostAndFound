@@ -56,6 +56,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:id="@+id/signup_buttom"
+                android:backgroundTint="@color/lavender"
                 android:textSize="18dp"
                 android:text="LOG IN"
 

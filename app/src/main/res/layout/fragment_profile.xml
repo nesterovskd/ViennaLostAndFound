@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/mainbkg"
+    tools:context=".login.ProfileFragment">
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="350dp">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="300dp"
+         android:orientation="vertical"
+         android:background="#2196F3">
+         <androidx.cardview.widget.CardView
+             android:layout_width="140dp"
+             android:layout_height="140dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="35dp"
+            android:foregroundGravity="center_horizontal"
+            app:cardCornerRadius="100dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+               android:src="@drawable/profile_picture_1"/>
+
+         </androidx.cardview.widget.CardView>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+            android:text="User Name"
+            android:textColor="#fff"
+            android:textSize="23dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"/>
+
+      </LinearLayout>
+      <androidx.cardview.widget.CardView
+          android:layout_width="match_parent"
+          android:layout_height="120dp"
+         android:layout_alignParentBottom="true"
+         android:layout_marginLeft="20dp"
+         android:layout_marginRight="20dp"
+         android:layout_centerHorizontal="true"
+         app:cardCornerRadius="5dp">
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+            android:weightSum="3"
+            android:orientation="horizontal"
+            android:padding="10dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+               android:layout_weight="1"
+               android:gravity="center">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                  android:text="BlaBla"
+                  android:textSize="17dp"
+                  android:textColor="#000"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                  android:text="LLLL"
+                  android:textSize="27dp"
+                  android:textColor="#2196F3"
+                  android:textStyle="bold"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="BlaBla"
+                   android:textSize="17dp"
+                   android:textColor="#000"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="LLLL"
+                   android:textSize="27dp"
+                   android:textColor="#2196F3"
+                   android:textStyle="bold"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="BlaBla"
+                   android:textSize="17dp"
+                   android:textColor="#000"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="LLLL"
+                   android:textSize="27dp"
+                   android:textColor="#2196F3"
+                   android:textStyle="bold"/>
+
+
+            </LinearLayout>
+               
+         </LinearLayout>
+
+
+
+      </androidx.cardview.widget.CardView>
+   </RelativeLayout>
+   
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:gravity="center"
+      android:layout_marginTop="30dp"/>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="20dp"
+
+       android:orientation="horizontal"
+      android:layout_marginLeft="25dp">
+      <ImageView
+          android:layout_width="45dp"
+          android:layout_height="45dp"
+         android:src="@drawable/baseline_email_24"/>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+         android:text="franceska@gmail.com"
+         android:textColor="#000"
+         android:textSize="18dp"
+         android:paddingLeft="15dp"
+         android:layout_gravity="center_vertical"/>
+   </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="20dp"
+
+       android:orientation="horizontal"
+       android:layout_marginLeft="25dp">
+      <ImageView
+          android:layout_width="45dp"
+          android:layout_height="45dp"
+          android:src="@drawable/baseline_phone_android_24"/>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="+436667778495"
+          android:textColor="#000"
+          android:textSize="18dp"
+          android:paddingLeft="15dp"
+          android:layout_gravity="center_vertical"/>
+   </LinearLayout>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+
+       android:orientation="horizontal"
+       android:layout_marginTop="20dp"
+       android:layout_marginLeft="25dp">
+      <ImageView
+          android:layout_width="45dp"
+          android:layout_height="45dp"
+          android:src="@drawable/baseline_location_on_24"/>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Gersthofer Strasse 100/1/2"
+          android:textColor="#000"
+          android:textSize="18dp"
+          android:paddingLeft="15dp"
+          android:layout_gravity="center_vertical"/>
+   </LinearLayout>
+
+   
+
+
+</LinearLayout>

@@ -64,10 +64,11 @@
            
            <Button
                android:layout_width="300dp"
-               android:layout_height="70dp"
+               android:layout_height="50dp"
                android:layout_gravity="center"
                android:layout_marginTop="30dp"
                android:id="@+id/signup_buttom"
+               android:backgroundTint="@color/lavender"
                android:textSize="18dp"
                android:text="SIGN UP"
 
