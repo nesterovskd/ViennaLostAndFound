@@ -16,6 +16,7 @@ import java.util.List;
 
 import at.ac.univie.hci.viennalostandfound.chat.ChatOverviewFragment;
 import at.ac.univie.hci.viennalostandfound.home.HomeFragment;
+import at.ac.univie.hci.viennalostandfound.login.Login_RegistrationFragment;
 import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
 
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     HomeFragment homeFragment = new HomeFragment();
     ChatOverviewFragment chatOverviewFragment = new ChatOverviewFragment();
     LoginRequestFragment loginRequestFragment = new LoginRequestFragment();
-
+    Login_RegistrationFragment login_RegistrationFragment = new Login_RegistrationFragment();
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -99,12 +100,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 }
 
             case R.id.profile:
-                // Add Profile Screen Fragment
-
-                // TODO move this to the login screen
-                //  Set logged-in User
-                loggedInUser = new User("Test User", "test.user@gmail.com"); // Default Profile Picture
-                LoggedInUser.setLoggedInUser(loggedInUser);
+                // If no user is logged in show login request fragment
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.flFragment, login_RegistrationFragment)
+                        .commit();
                 return true;
         }
         return false;
