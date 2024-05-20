@@ -17,6 +17,7 @@ import java.util.List;
 import at.ac.univie.hci.viennalostandfound.chat.ChatOverviewFragment;
 import at.ac.univie.hci.viennalostandfound.home.HomeFragment;
 import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
+import at.ac.univie.hci.viennalostandfound.upload.UploadFragment;
 import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
 
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     ChatOverviewFragment chatOverviewFragment = new ChatOverviewFragment();
     LoginRequestFragment loginRequestFragment = new LoginRequestFragment();
     LoginRegistrationFragment loginRegistrationFragment = new LoginRegistrationFragment();
+    UploadFragment uploadFragment = new UploadFragment();
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -79,7 +81,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return true;
 
             case R.id.insert_item:
-                // Add insert Item Screen Fragment
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.flFragment, uploadFragment)
+                        .commit();
                 return true;
 
             case R.id.chat:
