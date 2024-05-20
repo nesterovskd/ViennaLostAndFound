@@ -5,15 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/upload_add_title2"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@android:drawable/edit_text"
-        android:hint="Add title"
-        android:textAlignment="textStart"
-        android:textColor="#D3D3D3" />
-
     <Button
         android:id="@+id/upload_add_location"
         android:layout_width="252dp"
