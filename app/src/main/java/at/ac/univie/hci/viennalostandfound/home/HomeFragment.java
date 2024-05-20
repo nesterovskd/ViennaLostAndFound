@@ -12,8 +12,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import at.ac.univie.hci.viennalostandfound.R;
 import at.ac.univie.hci.viennalostandfound.chat.ChatActivity;
+import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
+import at.ac.univie.hci.viennalostandfound.login.ProfileFragment;
 import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class HomeFragment extends Fragment {
@@ -26,7 +31,9 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return  inflater.inflate(R.layout.fragment_home, container, false);
+
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -51,5 +58,18 @@ public class HomeFragment extends Fragment {
             loginButton.setVisibility(View.VISIBLE);
         }
 
+
+
+
     }
+        private void loadFragment(Fragment fragment) {
+            if (getActivity() != null) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+
+        }
 }
