@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".upload.UploadActivity">
+
+
+    <ImageView
+        android:id="@+id/upload_add_picture"
+        android:layout_width="120dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="146dp"
+        android:clickable="true"
+        android:contextClickable="true"
+        android:onClick="openGallery"
+        android:tintMode="src_in"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_add"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="165dp"
+        android:layout_marginEnd="165dp"
+        android:text="Add picture"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upload_add_picture" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="249dp"
+        android:layout_height="58dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/found_chip"
+            android:layout_width="115dp"
+            android:layout_height="50dp"
+            android:checkable="true"
+            android:gravity="center"
+            android:text="Found"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/chip_background_selector" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/lost_chip"
+            android:layout_width="115dp"
+            android:layout_height="50dp"
+            android:checkable="true"
+            android:gravity="center"
+            android:text="Lost"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/chip_background_selector" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <Button
+        android:id="@+id/upload_done"
+        android:layout_width="252dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="78dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="@color/lavender"
+        android:text="Done"
+        android:textColorLink="#A59999"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="@color/gray" />
+
+    <Spinner
+        android:id="@+id/upload_add_category"
+        android:layout_width="247dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="4dp"
+
+        android:background="@drawable/spinner_with_arrow"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/upload_add_location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <Spinner
+        android:id="@+id/upload_add_location"
+        android:layout_width="247dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="80dp"
+
+        android:background="@drawable/spinner_with_arrow"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upload_add_category" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="247dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/upload_add_category"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_bkg"
+            android:hint="Add title"
+            android:textAlignment="gravity" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="247dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="79dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upload_add_location">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/upload_add_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_bkg"
+            android:hint="Add description" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
