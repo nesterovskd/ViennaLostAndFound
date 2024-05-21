@@ -15,16 +15,16 @@
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="300dp"
-          android:orientation="vertical"
-          android:background="@color/lavender">
+          android:background="@color/lavender"
+          android:orientation="vertical">
+
 
          <androidx.cardview.widget.CardView
              android:layout_width="140dp"
              android:layout_height="140dp"
              android:layout_gravity="center_horizontal"
              android:layout_marginTop="35dp"
-             android:foregroundGravity="center_horizontal"
-             app:cardCornerRadius="100dp">
+             android:foregroundGravity="center_horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -36,12 +36,13 @@
          <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
+             android:layout_gravity="center_horizontal"
+             android:layout_marginTop="10dp"
              android:text="Lisi Knorr"
              android:textColor="@color/black"
              android:textSize="23dp"
-             android:layout_gravity="center_horizontal"
-             android:layout_marginTop="10dp"
-             android:textStyle="bold"/>
+             android:textStyle="bold" />
+
 
       </LinearLayout>
 
@@ -142,9 +143,9 @@
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:orientation="vertical"
+       android:layout_marginTop="30dp"
        android:gravity="center"
-       android:layout_marginTop="30dp"/>
+       android:orientation="vertical" />
 
    <LinearLayout
        android:layout_width="match_parent"
@@ -167,6 +168,11 @@
           android:paddingLeft="15dp"
           android:layout_gravity="center_vertical"/>
 
+      <ImageView
+          android:layout_width="35dp"
+          android:layout_height="20dp"
+          android:src="@drawable/baseline_edit_24" />
+
    </LinearLayout>
 
    <LinearLayout
@@ -181,6 +187,7 @@
           android:layout_height="45dp"
           android:src="@drawable/baseline_phone_android_24"/>
 
+
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -189,6 +196,11 @@
           android:textSize="18dp"
           android:paddingLeft="15dp"
           android:layout_gravity="center_vertical"/>
+
+      <ImageView
+          android:layout_width="34dp"
+          android:layout_height="20dp"
+          android:src="@drawable/baseline_edit_24" />
 
    </LinearLayout>
 
@@ -212,13 +224,17 @@
           android:textSize="18dp"
           android:paddingLeft="15dp"
           android:layout_gravity="center_vertical"/>
+      <ImageView
+          android:layout_width="35dp"
+          android:layout_height="20dp"
+          android:src="@drawable/baseline_edit_24" />
 
    </LinearLayout>
 
    <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_marginTop="20dp">
+       android:layout_marginTop="40dp">
 
       <Button
           android:id="@+id/found_list"
@@ -251,6 +267,15 @@
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent"
           app:layout_constraintVertical_bias="0.0" />
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="20dp">
+
+
+
 
    </androidx.constraintlayout.widget.ConstraintLayout>
 

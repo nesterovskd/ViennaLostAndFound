@@ -13,6 +13,12 @@
         android:theme="@style/Theme.ViennaLostAndFound"
         tools:targetApi="31">
         <activity
+            android:name=".login.LostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.CurrentlyLostActivity"
+            android:exported="false" />
+        <activity
             android:name=".login.SignLoginAktivity"
             android:exported="false" />
         <activity
