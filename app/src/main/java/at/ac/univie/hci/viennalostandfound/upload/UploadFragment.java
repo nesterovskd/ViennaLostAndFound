@@ -32,6 +32,7 @@ public class UploadFragment extends Fragment {
         String[] categories = {"Backpacks", "Personal documents", "Electronics", "Clothes"};
         String[] locations = {"1. District", "2. District", "3. District", "4. District"};
 
+        // Adapter für Filter
         ArrayAdapter<String> catAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, categories);
         catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerFilterCategories.setAdapter(catAdapter);
