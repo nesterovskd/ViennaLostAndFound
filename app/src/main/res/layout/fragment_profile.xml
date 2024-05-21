@@ -22,16 +22,17 @@
             android:layout_marginTop="35dp"
             android:foregroundGravity="center_horizontal"
             app:cardCornerRadius="100dp">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-               android:src="@drawable/profile_picture_1"/>
+                android:src="@drawable/profile_girl_with_cat" />
 
          </androidx.cardview.widget.CardView>
          <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-            android:text="Francesca Marino"
+            android:text="Lisi Knor"
             android:textColor="@color/black"
             android:textSize="23dp"
             android:layout_gravity="center_horizontal"
@@ -154,7 +155,7 @@
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-         android:text="francesca@gmail.com"
+         android:text="lisi_knor@gmail.com"
          android:textColor="#000"
          android:textSize="18dp"
          android:paddingLeft="15dp"
