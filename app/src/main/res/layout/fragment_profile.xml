@@ -161,7 +161,7 @@
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="lisi_knor@gmail.com"
+          android:text="lisi_knorr@gmail.com"
           android:textColor="#000"
           android:textSize="18dp"
           android:paddingLeft="15dp"
@@ -222,9 +222,9 @@
 
       <Button
           android:id="@+id/found_list"
-          android:layout_width="171dp"
+          android:layout_width="150dp"
           android:layout_height="wrap_content"
-          android:layout_marginEnd="32dp"
+          android:layout_marginEnd="16dp"
           android:backgroundTint="@color/lavender"
           android:clickable="true"
           android:focusable="true"
@@ -236,11 +236,10 @@
 
       <Button
           android:id="@+id/lost_list"
-          android:layout_width="171dp"
+          android:layout_width="150dp"
           android:layout_height="wrap_content"
           android:layout_alignParentRight="true"
           android:layout_centerHorizontal="true"
-          android:layout_marginStart="32dp"
           android:backgroundTint="@color/lavender"
           android:clickable="true"
           android:focusable="true"
@@ -248,8 +247,10 @@
           android:textColor="@color/black"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toStartOf="@+id/found_list"
+          app:layout_constraintHorizontal_bias="0.168"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent" />
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintVertical_bias="0.0" />
 
    </androidx.constraintlayout.widget.ConstraintLayout>
 
