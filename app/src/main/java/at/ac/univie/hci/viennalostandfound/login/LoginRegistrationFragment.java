@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.google.android.material.tabs.TabLayout;
 
+import at.ac.univie.hci.viennalostandfound.MainActivity;
 import at.ac.univie.hci.viennalostandfound.R;
 
 public class LoginRegistrationFragment extends Fragment {
@@ -29,41 +31,50 @@ public class LoginRegistrationFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tabLayout = view.findViewById(R.id.tab_layout);
-        viewPager2 = view.findViewById(R.id.view_pager);
+        if (MainActivity.loggedIn) {
+            loadFragment(new ProfileFragment());
+        } else {
+            MainActivity.loggedIn = true;
+            tabLayout = view.findViewById(R.id.tab_layout);
+            viewPager2 = view.findViewById(R.id.view_pager);
 
-        tabLayout.addTab(tabLayout.newTab().setText("Login"));
-        tabLayout.addTab(tabLayout.newTab().setText("Sign up"));
+            tabLayout.addTab(tabLayout.newTab().setText("Login"));
+            tabLayout.addTab(tabLayout.newTab().setText("Sign up"));
 
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        adapter = new LoginAdapter(fragmentManager, getLifecycle());
-        viewPager2.setAdapter(adapter);
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager2.setCurrentItem(tab.getPosition());
-            }
+            FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+            adapter = new LoginAdapter(fragmentManager, getLifecycle());
+            viewPager2.setAdapter(adapter);
+            tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+                @Override
+                public void onTabSelected(TabLayout.Tab tab) {
+                    viewPager2.setCurrentItem(tab.getPosition());
+                }
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
+                @Override
+                public void onTabUnselected(TabLayout.Tab tab) {
 
-            }
+                }
 
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
+                @Override
+                public void onTabReselected(TabLayout.Tab tab) {
+                }
+            });
 
-            }
-        });
+            viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+                @Override
+                public void onPageSelected(int position) {
+                    tabLayout.selectTab(tabLayout.getTabAt(position));
+                }
+            });
+        }
+    }
 
-        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageSelected(int position) {
-                tabLayout.selectTab(tabLayout.getTabAt(position));
-            }
-        });
-
-
-
+    private void loadFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
 

@@ -22,6 +22,8 @@ import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
+    public static boolean loggedIn = false;
     private List<User> usersList;
     private User loggedInUser;
     private BottomNavigationView bottomNavigationView;
