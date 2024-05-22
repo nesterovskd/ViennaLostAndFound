@@ -35,8 +35,8 @@ public class UploadFragment extends Fragment {
         Spinner spinnerFilterCategories = view.findViewById(R.id.upload_add_category);
         Spinner spinnerLocation = view.findViewById(R.id.upload_add_location);
 
-        String[] categories = {"Backpacks", "Personal documents", "Electronics", "Clothes"};
-        String[] locations = {"1. District", "2. District", "3. District", "4. District"};
+        String[] categories = {"Please select category", "Backpacks", "Personal documents", "Electronics", "Clothes"};
+        String[] locations = {"Please select location", "1. District", "2. District", "3. District", "4. District"};
 
         // Adapter für Filter
         ArrayAdapter<String> catAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, categories);
