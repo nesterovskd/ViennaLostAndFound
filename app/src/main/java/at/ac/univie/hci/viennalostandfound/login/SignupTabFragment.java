@@ -18,7 +18,6 @@ import at.ac.univie.hci.viennalostandfound.R;
 import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
 
-
 public class SignupTabFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

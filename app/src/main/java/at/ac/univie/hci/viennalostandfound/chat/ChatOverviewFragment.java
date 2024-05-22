@@ -12,10 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import at.ac.univie.hci.viennalostandfound.MainActivity;
 import at.ac.univie.hci.viennalostandfound.R;
 import at.ac.univie.hci.viennalostandfound.user.User;
 import at.ac.univie.hci.viennalostandfound.user.UserAdapter;

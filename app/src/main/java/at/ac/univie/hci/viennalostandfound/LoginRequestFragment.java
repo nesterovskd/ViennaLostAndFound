@@ -1,6 +1,5 @@
 package at.ac.univie.hci.viennalostandfound;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +8,6 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
-import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
-import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
-import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class LoginRequestFragment extends Fragment {
 
@@ -36,10 +31,6 @@ public class LoginRequestFragment extends Fragment {
                 MainActivity mainActivity = (MainActivity) getActivity();
                 mainActivity.navigateToProfile();
             }
-
-            // TODO Login as User
-            User loggedInUser = new User("Lisi Knorr", "lisi_knorr@gmail.com", R.drawable.profile_girl_with_cat);
-            LoggedInUser.setLoggedInUser(loggedInUser);
         });
     }
 

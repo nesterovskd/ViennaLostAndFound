@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import at.ac.univie.hci.viennalostandfound.R;
-import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
 
 public class HomeActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")

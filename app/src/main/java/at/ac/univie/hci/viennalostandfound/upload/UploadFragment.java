@@ -1,8 +1,6 @@
 package at.ac.univie.hci.viennalostandfound.upload;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
