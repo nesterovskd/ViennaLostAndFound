@@ -18,6 +18,16 @@ import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class ProfileFragment extends Fragment {
+    private User loggedInUser;
+
+    public ProfileFragment() {
+
+    }
+
+    public ProfileFragment(User loggedInUser) {
+        this.loggedInUser = loggedInUser;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -33,9 +43,6 @@ public class ProfileFragment extends Fragment {
         TextView profileFoundCount = view.findViewById(R.id.profile_found_count);
         TextView profileLostCount = view.findViewById(R.id.profile_lost_count);
         TextView profileAppreciationCount = view.findViewById(R.id.profile_appreciation_count);
-
-        // Create a new loggedIn User
-        User loggedInUser = createDummyLoginUser();
 
         // Display the user
         profilePicture.setImageResource(loggedInUser.getProfilePictureId());
@@ -65,18 +72,5 @@ public class ProfileFragment extends Fragment {
         });
 
         return view;
-    }
-
-    private User createDummyLoginUser() {
-        User user = new User("Lisi Knorr","lisi.knorr@gmail.com", R.drawable.profile_girl_with_cat);
-        user.setPhoneNumber("+43 6667778495");
-        user.setHomeAddress("Gersthofer Strasse 100/1/2");
-
-        user.setFoundCount("15");
-        user.setLostCount("9");
-        user.setAppreciationCount("12");
-
-        LoggedInUser.setLoggedInUser(user);
-        return user;
     }
 }

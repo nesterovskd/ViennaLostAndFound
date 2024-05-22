@@ -28,15 +28,25 @@ public class User implements Serializable {
         this.profilePictureId = R.drawable.ic_profile_foreground;
     }
 
-    public void resetUser() {
-        this.name = "";
-        this.emailAddress = "";
-        this.profilePictureId = R.drawable.ic_profile_foreground;
-        this.foundCount = "0";
-        this.lostCount = "0";
-        this.appreciationCount = "0";
-        this.phoneNumber = "";
-        this.homeAddress = "";
+    public static User createDummyLoginUser() {
+        User user = new User("Lisi Knorr","lisi.knorr@gmail.com", R.drawable.profile_girl_with_cat);
+        user.setPhoneNumber("+43 6667778495");
+        user.setHomeAddress("Gersthofer Strasse 100/1/2");
+
+        user.setFoundCount("15");
+        user.setLostCount("9");
+        user.setAppreciationCount("12");
+
+        LoggedInUser.setLoggedInUser(user);
+        return user;
+    }
+
+    public static void setProfileInfoForRegisteredUser(User registeredUser) {
+        registeredUser.setFoundCount("0");
+        registeredUser.setLostCount("0");
+        registeredUser.setAppreciationCount("0");
+        registeredUser.setPhoneNumber("...");
+        registeredUser.setHomeAddress("...");
     }
 
     public String getName() {
