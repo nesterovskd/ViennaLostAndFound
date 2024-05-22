@@ -20,8 +20,12 @@ import at.ac.univie.hci.viennalostandfound.R;
 public class ResultItemFragment extends Fragment{
     private ListView listView;
     private ResultAdapter adapter;
+    private SearchItem item;
 
     public ResultItemFragment() {
+        // Required empty public constructor
+    }
+    public ResultItemFragment(SearchItem item) {
         // Required empty public constructor
     }
 
