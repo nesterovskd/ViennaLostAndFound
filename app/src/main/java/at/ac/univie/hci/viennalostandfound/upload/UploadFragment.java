@@ -60,4 +60,6 @@ public class UploadFragment extends Fragment {
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
 
+
+
 }

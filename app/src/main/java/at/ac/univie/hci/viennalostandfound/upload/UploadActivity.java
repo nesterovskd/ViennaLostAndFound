@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import at.ac.univie.hci.viennalostandfound.R;
+import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
 
 public class UploadActivity extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
