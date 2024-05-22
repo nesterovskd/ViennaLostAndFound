@@ -200,8 +200,8 @@ ArrayAdapter<String> adapterItemsCategory;
         search.setOnClickListener(v -> {
             String searchText = ((EditText) view.findViewById(R.id.textSearch)).getText().toString();
             boolean found = switchToggle.isChecked();;
-            String place = autoCompleteTextViewStandort.toString() ;
-            String category = autoCompleteTextViewCategory.toString();
+            String place = autoCompleteTextViewStandort.getText().toString() ;
+            String category = autoCompleteTextViewCategory.getText().toString();
             String dateStr = editTextDate.getText().toString();
             SearchItem item = new SearchItem(searchText, found, place, category, dateStr);
 
