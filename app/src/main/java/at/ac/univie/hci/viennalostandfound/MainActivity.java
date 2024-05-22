@@ -24,6 +24,7 @@ import at.ac.univie.hci.viennalostandfound.search.SearchFragment;
 import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
 import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
+import at.ac.univie.hci.viennalostandfound.search.ResultItemFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     public static boolean LOGIN_STATUS = false;
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     SearchFragment searchFragment = new SearchFragment();
     UploadFragment uploadFragment = new UploadFragment();
 
+    ResultItemFragment resultItemFragment = new ResultItemFragment();
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
