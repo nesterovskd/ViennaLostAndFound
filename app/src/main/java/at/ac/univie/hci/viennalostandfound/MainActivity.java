@@ -5,8 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -20,8 +20,10 @@ import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
 import at.ac.univie.hci.viennalostandfound.login.LoginTabFragment;
 import at.ac.univie.hci.viennalostandfound.login.ProfileFragment;
 import at.ac.univie.hci.viennalostandfound.upload.UploadFragment;
+import at.ac.univie.hci.viennalostandfound.search.SearchFragment;
 import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
+import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     public static boolean LOGIN_STATUS = false;
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     ChatOverviewFragment chatOverviewFragment = new ChatOverviewFragment();
     LoginRequestFragment loginRequestFragment = new LoginRequestFragment();
     LoginRegistrationFragment loginRegistrationFragment = new LoginRegistrationFragment();
+    SearchFragment searchFragment = new SearchFragment();
     UploadFragment uploadFragment = new UploadFragment();
 
     @SuppressLint("NonConstantResourceId")
@@ -76,7 +79,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return true;
 
             case R.id.search:
-                // Add Search Screen Fragment
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.flFragment, searchFragment)
+                        .commit();
                 return true;
 
             case R.id.insert_item:
