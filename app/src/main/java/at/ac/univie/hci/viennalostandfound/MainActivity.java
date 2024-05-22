@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.search:
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.flFragment, searchFragment)
+                        .replace(R.id.flFragment, resultItemFragment)
                         .commit();
                 return true;
 
