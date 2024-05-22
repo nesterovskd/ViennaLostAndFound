@@ -22,11 +22,11 @@
             android:layout_marginBottom="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Search"
+                android:id="@+id/textSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:imeOptions="actionSearch" />
+                android:imeOptions="actionSearch"
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.SwitchCompat
@@ -43,6 +43,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:hint="Choose Place"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_marginBottom="16dp">
@@ -51,7 +52,8 @@
                 android:id="@+id/autoCompleteStandort"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none" />
+
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -65,7 +67,7 @@
                 android:id="@+id/autoCompleteCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none" />
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -88,7 +90,7 @@
             android:layout_height="wrap_content"
             android:text="Search"
             android:textColor="@android:color/white"
-            app:backgroundTint="?attr/colorPrimary"
+            app:backgroundTint="@color/lavender"
             app:cornerRadius="8dp" />
 
     </LinearLayout>

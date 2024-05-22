@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,13 +16,11 @@ import java.util.List;
 import at.ac.univie.hci.viennalostandfound.chat.ChatOverviewFragment;
 import at.ac.univie.hci.viennalostandfound.home.HomeFragment;
 import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
-import at.ac.univie.hci.viennalostandfound.login.LoginTabFragment;
-import at.ac.univie.hci.viennalostandfound.login.ProfileFragment;
+import at.ac.univie.hci.viennalostandfound.login.LoginRequestFragment;
 import at.ac.univie.hci.viennalostandfound.upload.UploadFragment;
 import at.ac.univie.hci.viennalostandfound.search.SearchFragment;
 import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
-import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
 import at.ac.univie.hci.viennalostandfound.search.ResultItemFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {

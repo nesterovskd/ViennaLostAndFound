@@ -40,7 +40,8 @@ public class LoginTabFragment extends Fragment {
             // Login as user
             // Only check if the email is equal, the password will be ignored
             if (inputEmailAddress.equals("lisi.knorr@gmail.com")) {
-                loadFragment(new ProfileFragment());
+                User loggedInUser = User.createDummyLoginUser();
+                loadFragment(new ProfileFragment(loggedInUser));
             } else {
                 Toast.makeText(getActivity(), "This User does not exist. Please sign up first!", Toast.LENGTH_SHORT).show();
             }
