@@ -12,14 +12,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.Objects;
+
 import at.ac.univie.hci.viennalostandfound.R;
+import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
+import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class LoginTabFragment extends Fragment {
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,12 +32,23 @@ public class LoginTabFragment extends Fragment {
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-
         super.onViewCreated(view, savedInstanceState);
+
+        EditText loginEmailEditText = view.findViewById(R.id.login_email);
 
         Button logIn = view.findViewById(R.id.login_button);
         logIn.setOnClickListener(v -> {
-            loadFragment(new ProfileFragment());
+            User loggedInUser = LoggedInUser.getLoggedInUser();
+
+            String inputEmailAddress = loginEmailEditText.getText().toString().trim();
+
+            // Check if the User exists
+            // Only check if the email is equal, the password will be ignored
+            if (loggedInUser != null && !Objects.equals(loggedInUser.getEmailAddress(), inputEmailAddress)) {
+                loadFragment(new ProfileFragment());
+            } else {
+                Toast.makeText(getActivity(), "This User does not exist. Please sign up first!", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

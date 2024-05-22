@@ -24,10 +24,10 @@
                 android:layout_height="200dp"
                 android:src="@drawable/loginimg"/>
             <EditText
+                android:id="@+id/login_email"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:id="@+id/login_email"
                 android:layout_marginTop="30dp"
                 android:padding="8dp"
                 android:hint="Email"

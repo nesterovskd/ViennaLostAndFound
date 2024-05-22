@@ -22,10 +22,8 @@ import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
-
-    public static boolean loggedIn = false;
+    public static boolean LOGIN_STATUS = false;
     private List<User> usersList;
-    private User loggedInUser;
     private BottomNavigationView bottomNavigationView;
 
     @Override
@@ -41,10 +39,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         // Create Dummy Users
         usersList = generateUsers();
-
-        // Temporary
-        loggedInUser = new User("logged in user", "e");
-        LoggedInUser.setLoggedInUser(loggedInUser);
     }
 
     private List<User> generateUsers() {
@@ -63,9 +57,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     LoginRequestFragment loginRequestFragment = new LoginRequestFragment();
     LoginRegistrationFragment loginRegistrationFragment = new LoginRegistrationFragment();
     UploadFragment uploadFragment = new UploadFragment();
+
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        // TODO move somewhere else
+        User loggedInUser = LoggedInUser.getLoggedInUser();
+
         switch (item.getItemId()) {
             case R.id.home:
                 Bundle bundleHome = new Bundle();

@@ -31,10 +31,10 @@ public class LoginRegistrationFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if (MainActivity.loggedIn) {
+        if (MainActivity.LOGIN_STATUS) {
             loadFragment(new ProfileFragment());
         } else {
-            MainActivity.loggedIn = true;
+            MainActivity.LOGIN_STATUS = true;
             tabLayout = view.findViewById(R.id.tab_layout);
             viewPager2 = view.findViewById(R.id.view_pager);
 
