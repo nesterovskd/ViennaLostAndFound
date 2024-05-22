@@ -17,6 +17,8 @@ import java.util.List;
 import at.ac.univie.hci.viennalostandfound.chat.ChatOverviewFragment;
 import at.ac.univie.hci.viennalostandfound.home.HomeFragment;
 import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
+import at.ac.univie.hci.viennalostandfound.login.LoginTabFragment;
+import at.ac.univie.hci.viennalostandfound.login.ProfileFragment;
 import at.ac.univie.hci.viennalostandfound.upload.UploadFragment;
 import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
@@ -38,10 +40,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottomNavigationView.setSelectedItemId(R.id.home);
 
         // Create Dummy Users
-        usersList = generateUsers();
+        usersList = generateDummyUsers();
     }
 
-    private List<User> generateUsers() {
+    private List<User> generateDummyUsers() {
         return new ArrayList<>(
                 Arrays.asList(
                         new User("Francesca Marino", "francesca.marino@gmail.com", R.drawable.profile_picture_1),
@@ -61,13 +63,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // TODO move somewhere else
-        User loggedInUser = LoggedInUser.getLoggedInUser();
-
         switch (item.getItemId()) {
             case R.id.home:
                 Bundle bundleHome = new Bundle();
-                bundleHome.putSerializable("loggedInUser", loggedInUser);
+                bundleHome.putSerializable("loggedInUser", LoggedInUser.getLoggedInUser());
                 homeFragment.setArguments(bundleHome);
 
                 getSupportFragmentManager()
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return true;
 
             case R.id.chat:
-                if (loggedInUser != null) {
+                if (LoggedInUser.getLoggedInUser() != null) {
                     // Pass usersList to chatOverviewScreen
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("usersList", new ArrayList<>(usersList));
@@ -110,7 +109,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 }
 
             case R.id.profile:
-                // If no user is logged in show login request fragment
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.flFragment, loginRegistrationFragment)

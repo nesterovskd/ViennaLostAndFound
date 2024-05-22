@@ -9,6 +9,13 @@ public class User implements Serializable {
     private String emailAddress;
     private int profilePictureId;
 
+    private String foundCount;
+    private String lostCount;
+    private String appreciationCount;
+
+    private String phoneNumber;
+    private String homeAddress;
+
     public User(String name, String emailAddress, int profilePictureId) {
         this.name = name;
         this.emailAddress = emailAddress;
@@ -19,6 +26,17 @@ public class User implements Serializable {
         this.name = name;
         this.emailAddress = emailAddress;
         this.profilePictureId = R.drawable.ic_profile_foreground;
+    }
+
+    public void resetUser() {
+        this.name = "";
+        this.emailAddress = "";
+        this.profilePictureId = R.drawable.ic_profile_foreground;
+        this.foundCount = "0";
+        this.lostCount = "0";
+        this.appreciationCount = "0";
+        this.phoneNumber = "";
+        this.homeAddress = "";
     }
 
     public String getName() {
@@ -43,5 +61,45 @@ public class User implements Serializable {
 
     public void setProfilePictureId(int profilePictureId) {
         this.profilePictureId = profilePictureId;
+    }
+
+    public String getFoundCount() {
+        return foundCount;
+    }
+
+    public void setFoundCount(String foundCount) {
+        this.foundCount = foundCount;
+    }
+
+    public String getLostCount() {
+        return lostCount;
+    }
+
+    public void setLostCount(String lostCount) {
+        this.lostCount = lostCount;
+    }
+
+    public String getAppreciationCount() {
+        return appreciationCount;
+    }
+
+    public void setAppreciationCount(String appreciationCount) {
+        this.appreciationCount = appreciationCount;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(String homeAddress) {
+        this.homeAddress = homeAddress;
     }
 }

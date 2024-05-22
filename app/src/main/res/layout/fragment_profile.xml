@@ -27,9 +27,10 @@
              android:foregroundGravity="center_horizontal">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/profile_girl_with_cat" />
+                android:id="@+id/profile_profile_picture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_profile_foreground" />
 
          </androidx.cardview.widget.CardView>
 
@@ -39,7 +40,7 @@
              android:layout_height="wrap_content"
              android:layout_gravity="center_horizontal"
              android:layout_marginTop="10dp"
-             android:text="Lisi Knorr"
+             android:text="Name"
              android:textColor="@color/black"
              android:textSize="23dp"
              android:textStyle="bold" />
@@ -78,9 +79,10 @@
                    android:textColor="#000"/>
 
                <TextView
+                   android:id="@+id/profile_found_count"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="15"
+                   android:text="0"
                    android:textColor="@color/lavender"
                    android:textSize="27dp"
                    android:textStyle="bold" />
@@ -102,9 +104,10 @@
                    android:textColor="#000"/>
 
                <TextView
+                   android:id="@+id/profile_lost_count"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="9"
+                   android:text="0"
                    android:textSize="27dp"
                    android:textColor="@color/lavender"
                    android:textStyle="bold"/>
@@ -126,9 +129,10 @@
                    android:textColor="#000"/>
 
                <TextView
+                   android:id="@+id/profile_appreciation_count"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="12"
+                   android:text="0"
                    android:textSize="27dp"
                    android:textColor="@color/lavender"
                    android:textStyle="bold"/>
@@ -164,7 +168,7 @@
           android:id="@+id/profile_email"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="lisi_knorr@gmail.com"
+          android:text="Email Address"
           android:textColor="#000"
           android:textSize="18dp"
           android:paddingLeft="15dp"
@@ -191,9 +195,10 @@
 
 
       <TextView
+          android:id="@+id/profile_phone_number"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="+436667778495"
+          android:text="Phone Number"
           android:textColor="#000"
           android:textSize="18dp"
           android:paddingLeft="15dp"
@@ -219,9 +224,10 @@
           android:src="@drawable/baseline_location_on_24"/>
 
       <TextView
+          android:id="@+id/profile_home_address"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Gersthofer Strasse 100/1/2"
+          android:text="Address"
           android:textColor="#000"
           android:textSize="18dp"
           android:paddingLeft="15dp"

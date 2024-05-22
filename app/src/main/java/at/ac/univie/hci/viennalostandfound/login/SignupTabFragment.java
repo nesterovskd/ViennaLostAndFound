@@ -19,6 +19,8 @@ import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class SignupTabFragment extends Fragment {
+    private User loggedInUser;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -32,6 +34,11 @@ public class SignupTabFragment extends Fragment {
         EditText signUpNameEditText = view.findViewById(R.id.signup_name);
         EditText signUpEmailEditText = view.findViewById(R.id.signup_email);
 
+        // TODO
+        //  this will still create an error
+        //  I will fix it later
+        loggedInUser = LoggedInUser.getLoggedInUser();
+
         Button logIn = view.findViewById(R.id.signup_button);
         logIn.setOnClickListener(v -> {
             // Get the name and email of the new User
@@ -39,8 +46,11 @@ public class SignupTabFragment extends Fragment {
             String signUpEmail = signUpEmailEditText.getText().toString().trim();
 
             if (!signUpName.isEmpty() && !signUpEmail.isEmpty()) {
+                if (loggedInUser != null) {
+                    loggedInUser.resetUser();
+                }
                 // Create a new User
-                User loggedInUser = new User(signUpName, signUpEmail, R.drawable.profile_girl_with_cat);
+                loggedInUser = new User(signUpName, signUpEmail);
                 // Login with this User
                 LoggedInUser.setLoggedInUser(loggedInUser);
 
