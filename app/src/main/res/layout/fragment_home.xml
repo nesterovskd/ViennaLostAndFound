@@ -9,8 +9,19 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FEFEFE"
+        android:background="@drawable/mainbkg"
         tools:context=".homescreen.HomescreenActivity">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="360dp"
+            android:layout_height="630dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/viewpager_bkg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <ImageView
             android:id="@+id/imageView12"
@@ -32,7 +43,7 @@
             android:layout_marginStart="36dp"
             android:layout_marginTop="32dp"
             android:text="Hello, stranger"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView12" />
@@ -57,6 +68,7 @@
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_Login_Homescreen" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
