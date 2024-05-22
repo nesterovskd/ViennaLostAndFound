@@ -58,6 +58,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     ChatOverviewFragment chatOverviewFragment = new ChatOverviewFragment();
     LoginRequestFragment loginRequestFragment = new LoginRequestFragment();
     LoginRegistrationFragment loginRegistrationFragment = new LoginRegistrationFragment();
+
+    public SearchFragment getSearchFragment() {
+        return searchFragment;
+    }
+
     SearchFragment searchFragment = new SearchFragment();
     UploadFragment uploadFragment = new UploadFragment();
 
