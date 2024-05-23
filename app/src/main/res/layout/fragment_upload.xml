@@ -97,6 +97,7 @@
 
         android:background="@drawable/spinner_with_arrow"
         android:clickable="true"
+        android:isScrollContainer="true"
         app:layout_constraintBottom_toTopOf="@+id/upload_add_location"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

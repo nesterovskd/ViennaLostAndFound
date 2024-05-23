@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Button;
+import android.widget.Toast;
+
 import com.google.android.material.chip.Chip;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -39,8 +41,54 @@ public class UploadFragment extends Fragment {
         Spinner spinnerFilterCategories = view.findViewById(R.id.upload_add_category);
         Spinner spinnerLocation = view.findViewById(R.id.upload_add_location);
 
-        String[] categories = {"Please select category", "Backpacks", "Personal documents", "Electronics", "Clothes"};
-        String[] locations = {"Please select location", "1. District", "2. District", "3. District", "4. District"};
+        String[] categories = {"Please select category", "ID",
+                "Documents",
+                "Plastic Cards",
+                "Wallets",
+                "Money",
+                "Security Instruments",
+                "Vehicles",
+                "Motorbikes",
+                "Boats",
+                "Trailers",
+                "Clothing",
+                "Footwear",
+                "Glasses",
+                "Contact Lenses",
+                "Optical Equipment",
+                "Electronics",
+                "Cameras",
+                "Cellphones",
+                "Bicycles",
+                "Scooters",
+                "Pushchairs",
+                "Household",
+                "Tools",
+                "Cases",
+                "Backpacks",
+                "Bags",
+                "Medical Devices And Aids",
+                "Medicines",
+                "Cosmetic Products",
+                "Musical Instruments",
+                "Food",
+                "Drink",
+                "Tobacco",
+                "Umbrellas",
+                "Keys",
+                "Jewelry",
+                "Watches",
+                "Stationery",
+                "Books",
+                "Photos",
+                "Toy",
+                "Sports",
+                "Leisure Items",
+                "Animals",
+                "Animal Accessories"};
+
+        String[] locations = {"Please select location", "1. Bezirk", "2. Bezirk", "3. Bezirk", "4. Bezirk", "5. Bezirk", "6. Bezirk", "7. Bezirk", "8. Bezirk", "9. Bezirk", "10. Bezirk",
+                "11. Bezirk", "12. Bezirk", "13. Bezirk", "14. Bezirk", "15. Bezirk", "16. Bezirk", "17. Bezirk", "18. Bezirk", "19. Bezirk", "20. Bezirk", "21. Bezirk", "22. Bezirk", "23. Bezirk",};
 
         // Adapter für Filter
         ArrayAdapter<String> catAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, categories);
@@ -90,6 +138,26 @@ public class UploadFragment extends Fragment {
             Boolean isLost = lostChip.isChecked();
             Boolean isFound = foundChip.isChecked();
 
+            if (titleText.isEmpty()) {
+                Toast.makeText(getContext(), "Please fill in the title", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (filterCategory.equals("Please select category")) {
+                Toast.makeText(getContext(), "Please enter category", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (filterLocation.equals("Please select location")) {
+                Toast.makeText(getContext(), "Please enter location", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (descriptionText.isEmpty()) {
+                Toast.makeText(getContext(), "Please enter Description", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(isLost == false && isFound == false){
+                Toast.makeText(getContext(), "Please enter if found or lost", Toast.LENGTH_SHORT).show();
+                return;
+            }
             //Einfügen in Ergebnisliste - Methode
         }
 
