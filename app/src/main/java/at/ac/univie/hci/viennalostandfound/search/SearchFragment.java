@@ -1,8 +1,13 @@
 package at.ac.univie.hci.viennalostandfound.search;
 
+import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +15,23 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import at.ac.univie.hci.viennalostandfound.MainActivity;
 import at.ac.univie.hci.viennalostandfound.R;
+import at.ac.univie.hci.viennalostandfound.login.ProfileFragment;
+import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
+import at.ac.univie.hci.viennalostandfound.user.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,6 +92,11 @@ ArrayAdapter<String> adapterItemsStandort;
 AutoCompleteTextView autoCompleteTextViewCategory;
 ArrayAdapter<String> adapterItemsCategory;
 
+    private TextInputEditText editTextDate;
+    private SwitchCompat switchToggle;
+    private MaterialButton searchButton;
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -118,13 +141,38 @@ ArrayAdapter<String> adapterItemsCategory;
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
+
+        editTextDate = view.findViewById(R.id.editTextDate);
+        switchToggle = view.findViewById(R.id.switchToggle);
+        searchButton = view.findViewById(R.id.search_button);
+
+        editTextDate.setOnClickListener(v -> {
+            final Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(
+                    getContext(),
+                    (view1, year1, monthOfYear, dayOfMonth) -> {
+                        calendar.set(year1, monthOfYear, dayOfMonth);
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
+                        editTextDate.setText(sdf.format(calendar.getTime()));
+                    },
+                    year, month, day
+            );
+            datePickerDialog.show();
+        });
+
+        return view;
     }
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -139,5 +187,36 @@ ArrayAdapter<String> adapterItemsCategory;
         adapterItemsCategory = new ArrayAdapter<>(requireContext(), R.layout.search_dropdown_item, categories);
         autoCompleteTextViewCategory.setAdapter(adapterItemsCategory);
 
+        SwitchCompat switchToggle = view.findViewById(R.id.switchToggle);
+        switchToggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                switchToggle.setText("Found");
+            } else {
+                switchToggle.setText("Lost");
+            }
+        });
+
+        Button search = view.findViewById(R.id.search_button);
+        search.setOnClickListener(v -> {
+            String searchText = ((EditText) view.findViewById(R.id.textSearch)).getText().toString();
+            boolean found = switchToggle.isChecked();;
+            String place = autoCompleteTextViewStandort.getText().toString() ;
+            String category = autoCompleteTextViewCategory.getText().toString();
+            String dateStr = editTextDate.getText().toString();
+            SearchItem item = new SearchItem(searchText, found, place, category, dateStr);
+
+                // Load the ProfileFragment
+                loadFragment(new ResultItemFragment(item));
+
+        });
+
+    }
+
+    public void loadFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.flFragment, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

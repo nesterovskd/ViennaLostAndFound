@@ -16,6 +16,8 @@ import com.google.android.material.tabs.TabLayout;
 
 import at.ac.univie.hci.viennalostandfound.MainActivity;
 import at.ac.univie.hci.viennalostandfound.R;
+import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
+import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class LoginRegistrationFragment extends Fragment {
     private TabLayout tabLayout;
@@ -32,7 +34,10 @@ public class LoginRegistrationFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (MainActivity.LOGIN_STATUS) {
-            loadFragment(new ProfileFragment());
+
+            User loggedInUser = User.createDummyLoginUser();
+            loadFragment(new ProfileFragment(loggedInUser));
+
         } else {
             MainActivity.LOGIN_STATUS = true;
             tabLayout = view.findViewById(R.id.tab_layout);

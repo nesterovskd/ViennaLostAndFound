@@ -1,20 +1,28 @@
 package at.ac.univie.hci.viennalostandfound.search;
 
 public class ResultItem {
-    private int result_img_ID;
-    private String result_item_txt;
+    private int img_ID;
+    private String description;
+    private String title;
+    private String category;
+    private String location;
+    private String date;
+    private boolean found;
+
+    private String creatorUsername;
+
 
     public ResultItem(int result_img_ID, String result_item_txt) {
-        this.result_img_ID = result_img_ID;
-        this.result_item_txt = result_item_txt;
+        this.img_ID = result_img_ID;
+        this.description = result_item_txt;
     }
 
     public int getImageResId() {
-        return result_img_ID;
+        return img_ID;
     }
 
     public String getText() {
-        return result_item_txt;
+        return description;
     }
 }
 

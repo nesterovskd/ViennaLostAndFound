@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,13 +16,11 @@ import java.util.List;
 import at.ac.univie.hci.viennalostandfound.chat.ChatOverviewFragment;
 import at.ac.univie.hci.viennalostandfound.home.HomeFragment;
 import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
-import at.ac.univie.hci.viennalostandfound.login.LoginTabFragment;
-import at.ac.univie.hci.viennalostandfound.login.ProfileFragment;
+import at.ac.univie.hci.viennalostandfound.login.LoginRequestFragment;
 import at.ac.univie.hci.viennalostandfound.upload.UploadFragment;
 import at.ac.univie.hci.viennalostandfound.search.SearchFragment;
 import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
-import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
 import at.ac.univie.hci.viennalostandfound.search.ResultItemFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -61,6 +58,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     ChatOverviewFragment chatOverviewFragment = new ChatOverviewFragment();
     LoginRequestFragment loginRequestFragment = new LoginRequestFragment();
     LoginRegistrationFragment loginRegistrationFragment = new LoginRegistrationFragment();
+
+    public SearchFragment getSearchFragment() {
+        return searchFragment;
+    }
+
     SearchFragment searchFragment = new SearchFragment();
     UploadFragment uploadFragment = new UploadFragment();
 
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.search:
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.flFragment, searchFragment)
+                        .replace(R.id.flFragment, resultItemFragment)
                         .commit();
                 return true;
 

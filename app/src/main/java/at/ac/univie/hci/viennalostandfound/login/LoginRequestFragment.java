@@ -1,4 +1,4 @@
-package at.ac.univie.hci.viennalostandfound;
+package at.ac.univie.hci.viennalostandfound.login;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import at.ac.univie.hci.viennalostandfound.MainActivity;
+import at.ac.univie.hci.viennalostandfound.R;
 
 public class LoginRequestFragment extends Fragment {
 
