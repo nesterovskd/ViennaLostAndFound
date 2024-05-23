@@ -11,12 +11,20 @@ import android.widget.TextView;
 import java.util.List;
 
 import at.ac.univie.hci.viennalostandfound.R;
-import at.ac.univie.hci.viennalostandfound.user.User;
 
-public class ResultAdapter extends BaseAdapter {
+public class ResultAdapter extends BaseAdapter implements View.OnClickListener {
 
     private Context context;
     private List<ResultItem> items;
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
 
     public ResultAdapter(Context context, List<ResultItem> items) {
         this.context = context;
@@ -52,6 +60,20 @@ public class ResultAdapter extends BaseAdapter {
         imageView.setImageResource(item.getImageResId());
         textView.setText(item.getText());
 
+        convertView.setOnClickListener(this);
+        convertView.setTag(position);
+
+        imageView.setOnClickListener(this);
+        imageView.setTag(position);
+
         return convertView;
+    }
+
+    @Override
+    public void onClick(View v) {
+        int position = (int) v.getTag();
+        if (listener != null) {
+            listener.onItemClick(position);
+        }
     }
 }

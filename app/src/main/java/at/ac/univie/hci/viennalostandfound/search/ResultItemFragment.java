@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
@@ -18,7 +20,7 @@ import java.util.List;
 import at.ac.univie.hci.viennalostandfound.MainActivity;
 import at.ac.univie.hci.viennalostandfound.R;
 
-public class ResultItemFragment extends Fragment{
+public class ResultItemFragment extends Fragment implements ResultAdapter.OnItemClickListener {
     private ListView listView;
     private ResultAdapter adapter;
     private SearchItem item;
@@ -26,10 +28,13 @@ public class ResultItemFragment extends Fragment{
     private EditText filterDate;
     private EditText filterCategory;
     private EditText filterLocation;
+    private List<ResultItem> items; // Define items as a class-level field
+
     public ResultItemFragment() {
     }
+
     public ResultItemFragment(SearchItem item) {
-       this.item= item;
+        this.item = item;
     }
 
     @Override
@@ -38,8 +43,9 @@ public class ResultItemFragment extends Fragment{
 
         View view = inflater.inflate(R.layout.fragment_result_list, container, false);
         listView = view.findViewById(R.id.result_list_view);
-        List<ResultItem> items = createDummyData();
+        items = createDummyData(); // Initialize items here
         adapter = new ResultAdapter(requireContext(), items);
+        adapter.setOnItemClickListener(this); // Set the click listener
         listView.setAdapter(adapter);
 
         Button editFiltersButton = view.findViewById(R.id.edit_filters_btn);
@@ -55,18 +61,15 @@ public class ResultItemFragment extends Fragment{
         filterDate = view.findViewById(R.id.filter_date);
         filterText = view.findViewById(R.id.filter_search);
 
-        filterCategory.setText(item.category); ;
-        filterText.setText(item.searchText); ;
-        filterLocation.setText(item.location); ;
-        filterDate.setText(item.date); ;
+        filterCategory.setText(item.category);
+        filterText.setText(item.searchText);
+        filterLocation.setText(item.location);
+        filterDate.setText(item.date);
 
         return view;
     }
 
     private void navigateToSearchFragment() {
-
-
-        //SearchFragment searchFragment = new SearchFragment();
         SearchFragment searchFragment = ((MainActivity) getActivity()).getSearchFragment();
 
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
@@ -83,5 +86,17 @@ public class ResultItemFragment extends Fragment{
         items.add(new ResultItem(R.drawable.found_bottle, "Result 2"));
         items.add(new ResultItem(R.drawable.scarf, "Result 3"));
         return items;
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        ResultItem clickedItem = items.get(position);
+        ItemDetails itemDetailsFragment = new ItemDetails();
+
+        FragmentManager fragmentManager = getParentFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.flFragment, itemDetailsFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
