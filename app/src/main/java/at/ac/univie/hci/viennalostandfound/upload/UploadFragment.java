@@ -21,8 +21,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.time.LocalDateTime;
+
 import at.ac.univie.hci.viennalostandfound.MainActivity;
 import at.ac.univie.hci.viennalostandfound.R;
+import at.ac.univie.hci.viennalostandfound.data.Data;
+import at.ac.univie.hci.viennalostandfound.search.ResultItem;
 
 public class UploadFragment extends Fragment {
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -31,7 +35,7 @@ public class UploadFragment extends Fragment {
     public UploadFragment() {
 
     }
-
+private Data data= Data.getSingleInstance();
 
     @Nullable
    // @Override
@@ -158,7 +162,8 @@ public class UploadFragment extends Fragment {
                 Toast.makeText(getContext(), "Please enter if found or lost", Toast.LENGTH_SHORT).show();
                 return;
             }
-            //Einfügen in Ergebnisliste - Methode
+
+            data.addItemDatenbank(new ResultItem(R.drawable.lost_item_2, descriptionText, titleText, filterCategory,filterLocation, LocalDateTime.now().toString(),isFound, "Lisi Knorr" ));
         }
 
     }

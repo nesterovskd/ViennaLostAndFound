@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     SearchFragment searchFragment = new SearchFragment();
     UploadFragment uploadFragment = new UploadFragment();
 
-    ResultItemFragment resultItemFragment = new ResultItemFragment();
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -85,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.search:
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.flFragment, resultItemFragment)
+                        .replace(R.id.flFragment, searchFragment)
                         .commit();
                 return true;
 

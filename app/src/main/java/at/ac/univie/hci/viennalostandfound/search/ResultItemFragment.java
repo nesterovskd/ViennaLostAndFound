@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -19,6 +20,7 @@ import java.util.List;
 
 import at.ac.univie.hci.viennalostandfound.MainActivity;
 import at.ac.univie.hci.viennalostandfound.R;
+import at.ac.univie.hci.viennalostandfound.data.Data;
 
 public class ResultItemFragment extends Fragment implements ResultAdapter.OnItemClickListener {
     private ListView listView;
@@ -28,8 +30,8 @@ public class ResultItemFragment extends Fragment implements ResultAdapter.OnItem
     private EditText filterDate;
     private EditText filterCategory;
     private EditText filterLocation;
-    private List<ResultItem> items; // Define items as a class-level field
-
+    //private List<ResultItem> items; // Define items as a class-level field
+    private Data data = Data.getSingleInstance();
     public ResultItemFragment() {
     }
 
@@ -38,13 +40,12 @@ public class ResultItemFragment extends Fragment implements ResultAdapter.OnItem
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_result_list, container, false);
         listView = view.findViewById(R.id.result_list_view);
-        items = createDummyData(); // Initialize items here
-        adapter = new ResultAdapter(requireContext(), items);
+        adapter = new ResultAdapter(requireContext(), data.getItemsDatenbank());
         adapter.setOnItemClickListener(this); // Set the click listener
         listView.setAdapter(adapter);
 
@@ -79,19 +80,12 @@ public class ResultItemFragment extends Fragment implements ResultAdapter.OnItem
         fragmentTransaction.commit();
     }
 
-    private List<ResultItem> createDummyData() {
-        List<ResultItem> items = new ArrayList<>();
 
-        items.add(new ResultItem(R.drawable.lost_item_1, "Wallet"));
-        items.add(new ResultItem(R.drawable.found_bottle, "Result 2"));
-        items.add(new ResultItem(R.drawable.scarf, "Result 3"));
-        return items;
-    }
 
     @Override
     public void onItemClick(int position) {
-        ResultItem clickedItem = items.get(position);
-        ItemDetails itemDetailsFragment = new ItemDetails();
+        ResultItem clickedItem = data.getItemsDatenbank().get(position);
+        ItemDetails itemDetailsFragment = new ItemDetails(clickedItem);
 
         FragmentManager fragmentManager = getParentFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
