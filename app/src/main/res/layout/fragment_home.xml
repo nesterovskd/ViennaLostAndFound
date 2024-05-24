@@ -9,7 +9,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/primary_color"
+        android:background="@color/ligth_lavender"
         tools:context=".homescreen.HomescreenActivity">
 
         <androidx.viewpager2.widget.ViewPager2

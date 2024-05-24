@@ -40,7 +40,7 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:id="@+id/signup_email"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:padding="8dp"
                 android:hint="Email"
                 android:drawableLeft="@drawable/baseline_email_24"
@@ -52,7 +52,7 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:id="@+id/signup_password"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:padding="8dp"
                 android:hint="Password"
                 android:inputType="textPassword"
@@ -60,18 +60,25 @@
                 android:drawablePadding="8dp"
                 android:background="@drawable/edittext_bkg"/>
 
-            <Button
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:id="@+id/signup_button"
-                android:backgroundTint="@color/lavender"
-                android:textSize="18dp"
-                android:text="SIGN UP"
-                app:cornerRadius="30dp"/>
+
+            <CheckBox android:id="@+id/checkbox_cheese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I agree to the terms of use and privacy policy. "/>
+
 
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/signup_button"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/lavender"
+        android:text="SIGN UP"
+        android:textSize="18dp"
+        app:cornerRadius="30dp" />
 
 </LinearLayout>
