@@ -164,6 +164,11 @@ private Data data= Data.getSingleInstance();
             }
 
             data.addItemDatenbank(new ResultItem(R.drawable.lost_item_2, descriptionText, titleText, filterCategory,filterLocation, LocalDateTime.now().toString(),isFound, "Lisi Knorr" ));
+            Toast.makeText(getContext(), "Item was uploaded", Toast.LENGTH_SHORT).show();
+
+            title.setText("");
+            description.setText("");
+            return;
         }
 
     }
