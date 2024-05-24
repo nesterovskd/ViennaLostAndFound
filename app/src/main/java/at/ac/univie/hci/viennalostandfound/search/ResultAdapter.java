@@ -46,6 +46,10 @@ public class ResultAdapter extends BaseAdapter implements View.OnClickListener {
         return position;
     }
 
+    public void setItems(List<ResultItem> items) {
+        this.items = items;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
@@ -76,4 +80,6 @@ public class ResultAdapter extends BaseAdapter implements View.OnClickListener {
             listener.onItemClick(position);
         }
     }
+
+
 }

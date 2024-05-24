@@ -26,7 +26,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <ImageView
             android:id="@+id/imageView12"
             android:layout_width="335dp"
@@ -68,24 +67,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
-        <Button
-            android:id="@+id/button_Select_Language"
-            android:layout_width="84dp"
-            android:layout_height="41dp"
-            android:layout_marginStart="290dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/lavender"
-            android:clickable="true"
-            android:text="EN"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/view_pager" />
-
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_Login_Homescreen" />
+            app:layout_constraintTop_toBottomOf="@+id/button_Login_Homescreen" >
+
+            <Button
+                android:id="@+id/button_Select_Language"
+                android:layout_width="84dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="290dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/lavender"
+                android:clickable="true"
+                android:text="EN"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/view_pager" />
+        </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </FrameLayout>

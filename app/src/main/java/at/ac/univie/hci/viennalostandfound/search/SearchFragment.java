@@ -139,9 +139,9 @@ ArrayAdapter<String> adapterItemsCategory;
             } else if (i == 1 || i==21) {
                 bezirke[i] = String.valueOf(i + 1) + "\u207f\u1d48  District"; // 2nd
             } else if (i == 2 || i==22) {
-                bezirke[i] = String.valueOf(i + 1) + "\u02b3\u1d48 District"; // 3rd
+                bezirke[i] = String.valueOf(i + 1) + "\u02b3\u1d48  District"; // 3rd
             } else {
-                bezirke[i] = String.valueOf(i + 1) + "\u1d57\u02b0 District"; // nth
+                bezirke[i] = String.valueOf(i + 1) + "\u1d57\u02b0  District"; // nth
             }
         }
 

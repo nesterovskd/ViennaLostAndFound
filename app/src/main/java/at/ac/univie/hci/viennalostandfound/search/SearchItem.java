@@ -4,6 +4,27 @@ public class SearchItem {
     String searchText;
     boolean found;
     String location;
+
+    public String getSearchText() {
+        return searchText;
+    }
+
+    public boolean isFound() {
+        return found;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
     String category;
     String date;
 

@@ -32,6 +32,7 @@ public class ResultItemFragment extends Fragment implements ResultAdapter.OnItem
     private EditText filterLocation;
     //private List<ResultItem> items; // Define items as a class-level field
     private Data data = Data.getSingleInstance();
+    List<ResultItem> filteredItemsDatenbank = new ArrayList<ResultItem>();
     public ResultItemFragment() {
     }
 
@@ -43,9 +44,11 @@ public class ResultItemFragment extends Fragment implements ResultAdapter.OnItem
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        this.filterItems(this.data);
+
         View view = inflater.inflate(R.layout.fragment_result_list, container, false);
         listView = view.findViewById(R.id.result_list_view);
-        adapter = new ResultAdapter(requireContext(), data.getItemsDatenbank());
+        adapter = new ResultAdapter(requireContext(), filteredItemsDatenbank);
         adapter.setOnItemClickListener(this); // Set the click listener
         listView.setAdapter(adapter);
 
@@ -70,6 +73,35 @@ public class ResultItemFragment extends Fragment implements ResultAdapter.OnItem
         return view;
     }
 
+    private void filterItems(Data data){
+        List<ResultItem> filtered_data = new ArrayList<>(data.getItemsDatenbank());
+        filtered_data.clear();
+
+//
+
+        String location = item.getLocation();
+        String date = item.getDate();
+        String category = item.getCategory();
+
+        // add boolean for lost and found - Isidora
+        // boolean found = ;
+
+        if(data == null){
+            filteredItemsDatenbank = filtered_data;
+        }else{
+            for (ResultItem item : data.getItemsDatenbank()) {
+                // Check if item's location, date, and category match the filter values
+                if ((location.isEmpty() || item.getLocation().equalsIgnoreCase(location)) &&
+                        (date.isEmpty() || item.getDate().equalsIgnoreCase(date)) &&
+                        (category.isEmpty() || item.getCategory().equalsIgnoreCase(category))) {
+                    filtered_data.add(item);
+                }
+            }
+        }
+
+        this.filteredItemsDatenbank = filtered_data;
+    }
+
     private void navigateToSearchFragment() {
         SearchFragment searchFragment = ((MainActivity) getActivity()).getSearchFragment();
 
@@ -84,7 +116,7 @@ public class ResultItemFragment extends Fragment implements ResultAdapter.OnItem
 
     @Override
     public void onItemClick(int position) {
-        ResultItem clickedItem = data.getItemsDatenbank().get(position);
+        ResultItem clickedItem = filteredItemsDatenbank.get(position);
         ItemDetails itemDetailsFragment = new ItemDetails(clickedItem);
 
         FragmentManager fragmentManager = getParentFragmentManager();
