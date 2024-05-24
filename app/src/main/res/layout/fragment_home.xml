@@ -9,16 +9,20 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/mainbkg"
+        android:background="@color/primary_color"
         tools:context=".homescreen.HomescreenActivity">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager"
             android:layout_width="360dp"
             android:layout_height="630dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/viewpager_bkg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_container"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,7 +32,7 @@
             android:layout_width="335dp"
             android:layout_height="340dp"
             android:layout_marginStart="38dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="38dp"
             android:adjustViewBounds="true"
             app:layout_constraintEnd_toEndOf="parent"
