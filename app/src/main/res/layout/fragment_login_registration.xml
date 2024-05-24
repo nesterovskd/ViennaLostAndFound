@@ -5,49 +5,36 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainbkg"
+    android:background="@color/primary_color"
     tools:context=".login.LoginRegistrationFragment">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="380dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1">
-        <FrameLayout
-            android:id="@+id/fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_pager"
-                android:layout_width="match_parent"
+                android:layout_width="360dp"
                 android:layout_height="630dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/viewpager_bkg"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_container"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout"
-                android:layout_width="match_parent"
+                android:layout_width="@+id/view_pager"
                 android:layout_height="60dp"
                 android:background="@drawable/tab_bkg"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/view_pager"
+                app:layout_constraintEnd_toEndOf="@+id/view_pager"
+                app:layout_constraintStart_toStartOf="@+id/view_pager"
+                app:layout_constraintTop_toTopOf="@+id/view_pager"
                 app:layout_constraintVertical_bias="0" />
 
-        </FrameLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

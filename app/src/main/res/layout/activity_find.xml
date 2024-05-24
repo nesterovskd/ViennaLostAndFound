@@ -4,8 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainbkg"
+    android:background="@color/primary_color"
     tools:context=".login.FindActivity">
+    <ImageButton
+        android:id="@+id/exit_buttom_from_found"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Go back"
+        android:src="@drawable/ic_arrow_back_foreground"
+        app:layout_constraintBottom_toBottomOf="@+id/chat_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/chat_header" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
