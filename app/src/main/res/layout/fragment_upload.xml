@@ -4,8 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainbkg"
+    android:background="@color/primary_color"
     tools:context=".upload.UploadActivity">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="360dp"
+        android:layout_height="630dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/viewpager_bkg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
@@ -13,7 +24,7 @@
         android:layout_width="120dp"
         android:layout_height="114dp"
         android:layout_marginStart="146dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="146dp"
         android:clickable="true"
         android:tintMode="src_in"
@@ -77,7 +88,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="78dp"
         android:layout_marginEnd="78dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="70dp"
         android:backgroundTint="@color/lavender"
         android:text="Done"
         android:textColorLink="#A59999"

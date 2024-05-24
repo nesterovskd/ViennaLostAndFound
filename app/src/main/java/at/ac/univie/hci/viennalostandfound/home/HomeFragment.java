@@ -11,9 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import at.ac.univie.hci.viennalostandfound.MainActivity;
 import at.ac.univie.hci.viennalostandfound.R;
+import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
 import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class HomeFragment extends Fragment {
@@ -40,10 +43,16 @@ public class HomeFragment extends Fragment {
         }
 
         TextView welcomeTextView = view.findViewById(R.id.textView_Homescreen_Greeting);
+        TextView welcomeTextViewLoggedIn = view.findViewById(R.id.textView_Homescreen_Greeting_Loggedin);
         if (loggedInUser != null) {
             welcomeTextView.setText("Hello, " + loggedInUser.getName());
             Button loginButton = view.findViewById(R.id.button_Login_Homescreen);
             loginButton.setVisibility(View.GONE);
+            LoggedInFragment homeLoggedIn = new LoggedInFragment();
+            Bundle bundleHome = new Bundle();
+            bundleHome.putSerializable("loggedInUser", loggedInUser);
+            homeLoggedIn.setArguments(bundleHome);
+            loadFragment(homeLoggedIn);
         }
         else{
             welcomeTextView.setText("Hello, stranger");
@@ -61,6 +70,14 @@ public class HomeFragment extends Fragment {
             mainActivity.navigateToProfile();
         }
     }
+    private void loadFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
 
 }
 

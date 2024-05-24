@@ -14,7 +14,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+       // setContentView(R.layout.activity_home);
 
         TextView greetingTextView = findViewById(R.id.textView_Homescreen_Greeting);
         Button loginButton = findViewById(R.id.button_Login_Homescreen);
