@@ -77,13 +77,12 @@ public class ResultItemFragment extends Fragment implements ResultAdapter.OnItem
         filtered_data.clear();
 
 //
-
+        boolean found = item.isFound();
         String location = item.getLocation();
         String date = item.getDate();
         String category = item.getCategory();
+        String search_txt = item.getSearchText();
 
-        // add boolean for lost and found - Isidora
-        // boolean found = ;
 
         if(data == null){
             filteredItemsDatenbank = filtered_data;
@@ -92,7 +91,9 @@ public class ResultItemFragment extends Fragment implements ResultAdapter.OnItem
                 // Check if item's location, date, and category match the filter values
                 if ((location.isEmpty() || item.getLocation().equalsIgnoreCase(location)) &&
                         (date.isEmpty() || item.getDate().equalsIgnoreCase(date)) &&
-                        (category.isEmpty() || item.getCategory().equalsIgnoreCase(category))) {
+                        (category.isEmpty() || item.getCategory().equalsIgnoreCase(category)) &&
+                        (found == item.isFound()) &&
+                        (item.getText().toLowerCase().contains(search_txt) || item.getDescription().toLowerCase().contains(search_txt)) || search_txt.isEmpty()) {
                     filtered_data.add(item);
                 }
             }
