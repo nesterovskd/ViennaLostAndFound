@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -42,10 +43,8 @@ private Data data= Data.getSingleInstance();
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_upload, container, false);
 
-        Spinner spinnerFilterCategories = view.findViewById(R.id.upload_add_category);
-        Spinner spinnerLocation = view.findViewById(R.id.upload_add_location);
 
-        String[] categories = {"Please select category", "ID",
+        String[] categories = {"ID",
                 "Documents",
                 "Plastic Cards",
                 "Wallets",
@@ -91,18 +90,25 @@ private Data data= Data.getSingleInstance();
                 "Animals",
                 "Animal Accessories"};
 
-        String[] locations = {"Please select location", "1. Bezirk", "2. Bezirk", "3. Bezirk", "4. Bezirk", "5. Bezirk", "6. Bezirk", "7. Bezirk", "8. Bezirk", "9. Bezirk", "10. Bezirk",
-                "11. Bezirk", "12. Bezirk", "13. Bezirk", "14. Bezirk", "15. Bezirk", "16. Bezirk", "17. Bezirk", "18. Bezirk", "19. Bezirk", "20. Bezirk", "21. Bezirk", "22. Bezirk", "23. Bezirk",};
+        String[] locations = {"1. District", "2. District", "3. District", "4. District", "5. District", "6. District", "7. District", "8. District", "9. District", "10. District",
+                "11. District", "12. District", "13. District", "14. District", "15. District", "16. District", "17. District", "18. District", "19. District", "20. District", "21. District", "22. District", "23. District",};
 
         // Adapter für Filter
-        ArrayAdapter<String> catAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, categories);
-        catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerFilterCategories.setAdapter(catAdapter);
+        AutoCompleteTextView autoCompleteTextViewCategory;
+        ArrayAdapter<String> adapterItemsCategory;
+
+        autoCompleteTextViewCategory = view.findViewById(R.id.uploadCategory);
+        adapterItemsCategory = new ArrayAdapter<>(requireContext(), R.layout.search_dropdown_item, categories);
+        autoCompleteTextViewCategory.setAdapter(adapterItemsCategory);
 
         // Adapter für Orte
-        ArrayAdapter<String> locAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, locations);
-        locAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerLocation.setAdapter(locAdapter);
+        AutoCompleteTextView autoCompleteTextViewStandort;
+        ArrayAdapter<String> adapterItemsStandort;
+
+        autoCompleteTextViewStandort = view.findViewById(R.id.uploadLocation);
+        adapterItemsStandort = new ArrayAdapter<>(requireContext(), R.layout.search_dropdown_item, locations);
+        autoCompleteTextViewStandort.setAdapter(adapterItemsStandort);
+
 
         // Add picture
         imageView = view.findViewById(R.id.upload_add_picture);
@@ -131,13 +137,15 @@ private Data data= Data.getSingleInstance();
             Chip lostChip = view.findViewById(R.id.lost_chip);
             Chip foundChip = view.findViewById(R.id.found_chip);
             TextInputEditText title = view.findViewById(R.id.upload_add_title);
-            Spinner category = view.findViewById(R.id.upload_add_category);
-            Spinner location = view.findViewById(R.id.upload_add_location);
             TextInputEditText description = view.findViewById(R.id.upload_add_description);
+            AutoCompleteTextView autoCompleteTextViewCategory;
+            autoCompleteTextViewCategory = view.findViewById(R.id.uploadCategory);
+            AutoCompleteTextView autoCompleteTextViewStandort;
+            autoCompleteTextViewStandort = view.findViewById(R.id.uploadLocation);
 
-            String filterCategory = (String) category.getSelectedItem();
+            String filterCategory = String.valueOf(autoCompleteTextViewCategory.getText());
             String titleText = String.valueOf(title.getText());
-            String filterLocation = (String) location.getSelectedItem();
+            String filterLocation = String.valueOf(autoCompleteTextViewStandort.getText());
             String descriptionText = String.valueOf(description.getText());
             Boolean isLost = lostChip.isChecked();
             Boolean isFound = foundChip.isChecked();
@@ -146,11 +154,11 @@ private Data data= Data.getSingleInstance();
                 Toast.makeText(getContext(), "Please fill in the title", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (filterCategory.equals("Please select category")) {
+            if (filterCategory.isEmpty()) {
                 Toast.makeText(getContext(), "Please enter category", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (filterLocation.equals("Please select location")) {
+            if (filterLocation.isEmpty()) {
                 Toast.makeText(getContext(), "Please enter location", Toast.LENGTH_SHORT).show();
                 return;
             }

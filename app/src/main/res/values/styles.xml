@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme. -->
-    <!-- https://www.geeksforgeeks.org/bottom-navigation-bar-in-android/ -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/black</item>
-        <item name="colorAccent">@color/blue</item>
+        <item name="colorAccent">@color/ligth_lavender</item>
+    </style>
+
+    <style name="CustomOutlinedDropdownMenu" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+    <!-- Override the default box stroke color -->
+        <item name="boxStrokeColor">@android:color/transparent</item>
+        <!-- Set the focused box stroke color to transparent -->
+        <!-- Set the default box stroke width to 0dp -->
+        <item name="boxStrokeWidth">0dp</item>
+        <!-- Set the focused box stroke width to 0dp -->
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <!-- Set the error box stroke width to 0dp -->
+
+
     </style>
 
     <style name="circleImageView">

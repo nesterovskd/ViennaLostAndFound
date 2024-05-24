@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_color"
+    android:background="@color/ligth_lavender"
     tools:context=".upload.UploadActivity">
 
     <androidx.viewpager2.widget.ViewPager2
@@ -54,7 +54,7 @@
         android:layout_width="249dp"
         android:layout_height="58dp"
         android:layout_gravity="center"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -88,57 +88,71 @@
         android:layout_height="48dp"
         android:layout_marginStart="78dp"
         android:layout_marginEnd="78dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/lavender"
         android:text="Done"
         android:textColorLink="#A59999"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/view_pager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:rippleColor="@color/gray" />
 
-    <Spinner
-        android:id="@+id/upload_add_category"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout6"
+        style="@style/CustomOutlinedDropdownMenu"
+
         android:layout_width="247dp"
         android:layout_height="58dp"
         android:layout_marginStart="79dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="79dp"
-        android:layout_marginBottom="4dp"
-
-        android:background="@drawable/spinner_with_arrow"
-        android:clickable="true"
-        android:isScrollContainer="true"
-        app:layout_constraintBottom_toTopOf="@+id/upload_add_location"
+        android:background="@drawable/edittext_bkg"
+        android:hint="Choose Place"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup">
 
-    <Spinner
-        android:id="@+id/upload_add_location"
+        <AutoCompleteTextView
+            android:id="@+id/uploadLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout5"
+        style="@style/CustomOutlinedDropdownMenu"
         android:layout_width="247dp"
         android:layout_height="58dp"
         android:layout_marginStart="79dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="133dp"
         android:layout_marginEnd="79dp"
-
-        android:background="@drawable/spinner_with_arrow"
-        android:clickable="true"
+        android:background="@drawable/edittext_bkg"
+        android:hint="Choose Category"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upload_add_category" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup">
+
+        <AutoCompleteTextView
+            android:id="@+id/uploadCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="246dp"
         android:layout_height="61dp"
         android:layout_marginStart="79dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="79dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/upload_add_category"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -154,15 +168,16 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
         android:layout_width="247dp"
         android:layout_height="79dp"
         android:layout_marginStart="79dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="192dp"
         android:layout_marginEnd="79dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upload_add_location">
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/upload_add_description"
