@@ -8,6 +8,19 @@
         <item name="colorAccent">@color/blue</item>
     </style>
 
+    <style name="CustomOutlinedDropdownMenu" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+    <!-- Override the default box stroke color -->
+        <item name="boxStrokeColor">@android:color/transparent</item>
+        <!-- Set the focused box stroke color to transparent -->
+        <!-- Set the default box stroke width to 0dp -->
+        <item name="boxStrokeWidth">0dp</item>
+        <!-- Set the focused box stroke width to 0dp -->
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <!-- Set the error box stroke width to 0dp -->
+
+
+    </style>
+
     <style name="circleImageView">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
