@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import at.ac.univie.hci.viennalostandfound.chat.ChatOverviewFragment;
+import at.ac.univie.hci.viennalostandfound.data.Data;
 import at.ac.univie.hci.viennalostandfound.home.HomeFragment;
 import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
 import at.ac.univie.hci.viennalostandfound.login.LoginRequestFragment;
@@ -25,7 +26,6 @@ import at.ac.univie.hci.viennalostandfound.search.ResultItemFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     public static boolean LOGIN_STATUS = false;
-    private List<User> usersList;
     private BottomNavigationView bottomNavigationView;
 
     @Override
@@ -38,19 +38,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         // Set start-Screen
         bottomNavigationView.setSelectedItemId(R.id.home);
-
-        // Create Dummy Users
-        usersList = generateDummyUsers();
-    }
-
-    private List<User> generateDummyUsers() {
-        return new ArrayList<>(
-                Arrays.asList(
-                        new User("Francesca Marino", "francesca.marino@gmail.com", R.drawable.profile_picture_1),
-                        new User("Marcel Meyer", "marcel.meyer@gmail.com", R.drawable.profile_picture_2),
-                        new User("David Sacks", "david.sacks@gmail.com", R.drawable.profile_picture_3)
-                )
-        );
     }
 
     // Initialize fragments
@@ -99,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 if (LoggedInUser.getLoggedInUser() != null) {
                     // Pass usersList to chatOverviewScreen
                     Bundle bundle = new Bundle();
-                    bundle.putSerializable("usersList", new ArrayList<>(usersList));
+                    bundle.putSerializable("usersList", Data.getSingleInstance().getUsersList());
                     chatOverviewFragment.setArguments(bundle);
 
                     // View the Chat Fragment
@@ -129,9 +116,5 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     public void navigateToProfile() {
         bottomNavigationView.setSelectedItemId(R.id.profile);
-    }
-
-    public List<User> getUsersList() {
-        return usersList;
     }
 }

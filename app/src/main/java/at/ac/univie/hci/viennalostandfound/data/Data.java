@@ -1,10 +1,12 @@
 package at.ac.univie.hci.viennalostandfound.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import at.ac.univie.hci.viennalostandfound.R;
 import at.ac.univie.hci.viennalostandfound.search.ResultItem;
+import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class Data {
     private static Data singleInstance = null;
@@ -17,6 +19,12 @@ public class Data {
 
     List<ResultItem> itemsDatenbank = new ArrayList<ResultItem>();
 
+    private final List<User> usersList = new ArrayList<>();
+
+    public Serializable getUsersList() {
+        return (Serializable) usersList;
+    }
+
     public static Data getSingleInstance() {
         if(singleInstance ==null)
         {
@@ -27,6 +35,13 @@ public class Data {
 
     private Data() {
         createDummyData();
+        generateDummyUsers();
+    }
+
+    private void generateDummyUsers() {
+        usersList.add(new User("Francesca Marino", "francesca.marino@gmail.com", R.drawable.profile_picture_1));
+        usersList.add(new User("Marcel Meyer", "marcel.meyer@gmail.com", R.drawable.profile_picture_2));
+        usersList.add(new User("David Sacks", "david.sacks@gmail.com", R.drawable.profile_picture_3));
     }
 
     private void createDummyData() {
