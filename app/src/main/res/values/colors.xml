@@ -5,6 +5,9 @@
     <color name="blue">#0000FF</color>
     <color name="gray">#AAAAAA</color>
     <color name="lavender">#8692f7</color>
+
+    <color name="ligth_lavender">#C8CEFF</color>
+
     <color name="beige">#f1e8d7</color>
     <color name="dark_gray">#A9A9A9</color>
     <color name="light_gray">#E2E7D7</color>
