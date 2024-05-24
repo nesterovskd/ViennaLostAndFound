@@ -9,25 +9,22 @@
 
     <LinearLayout
         android:id="@+id/layout"
-        android:layout_height="630dp"
-        android:layout_width="360dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
         android:background="@drawable/viewpager_bkg"
         android:orientation="vertical"
         android:layout_gravity="center"
-        android:padding="20dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp">
+        android:padding="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="15dp">
 
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Search"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:hint="Search">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textSearch"
@@ -50,12 +47,12 @@
             android:trackTint="@color/lavender" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:hint="Choose Place"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_marginBottom="16dp">
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Choose Place">
 
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteStandort"
@@ -66,11 +63,11 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Choose Category"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:hint="Choose Category">
 
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteCategory"
@@ -80,11 +77,11 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Date"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:hint="Date">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextDate"
@@ -101,9 +98,9 @@
             android:backgroundTint="@color/lavender"
             android:text="SEARCH"
             android:textSize="14dp"
-            app:layout_constraintTop_toBottomOf="@id/filters_bar"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/filters_bar" />
 
     </LinearLayout>
 </FrameLayout>

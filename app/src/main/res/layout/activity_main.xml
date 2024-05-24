@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- https://www.geeksforgeeks.org/bottom-navigation-bar-in-android/ -->
+    <!-- From: https://www.geeksforgeeks.org/bottom-navigation-bar-in-android/ -->
     <FrameLayout
         android:id="@+id/flFragment"
         android:layout_width="match_parent"

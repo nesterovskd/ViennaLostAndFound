@@ -3,7 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ligth_lavender"
     tools:context=".chat.ChatOverviewFragment">
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:background="@drawable/viewpager_bkg"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="15dp">
 
     <ListView
         android:id="@+id/chats_list"
@@ -11,4 +23,5 @@
         android:layout_height="match_parent"
         android:dividerHeight="0dp"
         android:divider="@android:color/white"/>
+    </LinearLayout>
 </FrameLayout>
