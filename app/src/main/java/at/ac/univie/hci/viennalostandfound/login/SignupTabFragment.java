@@ -15,10 +15,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import at.ac.univie.hci.viennalostandfound.R;
-import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
+import at.ac.univie.hci.viennalostandfound.data.Data;
 import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class SignupTabFragment extends Fragment {
+
+    private Data data = Data.getSingleInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,7 +52,7 @@ public class SignupTabFragment extends Fragment {
     private User createNewRegisteredUser(String signUpName, String signUpEmail) {
         User registeredUser = new User(signUpName, signUpEmail);
         User.setProfileInfoForRegisteredUser(registeredUser);
-        LoggedInUser.setLoggedInUser(registeredUser);
+        data.setLoggedInUser(registeredUser);
         return registeredUser;
     }
 

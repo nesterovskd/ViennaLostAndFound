@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import at.ac.univie.hci.viennalostandfound.R;
+import at.ac.univie.hci.viennalostandfound.data.ResultItem;
 
 public class ResultAdapter extends BaseAdapter implements View.OnClickListener {
 
@@ -59,10 +60,16 @@ public class ResultAdapter extends BaseAdapter implements View.OnClickListener {
         ResultItem item = (ResultItem) getItem(position);
 
         ImageView imageView = convertView.findViewById(R.id.item_image);
-        TextView textView = convertView.findViewById(R.id.item_text);
+        TextView textView = convertView.findViewById(R.id.list_item_text);
+        TextView userView = convertView.findViewById(R.id.list_item_user);
+        TextView dateView = convertView.findViewById(R.id.list_item_date);
+        TextView categoryView = convertView.findViewById(R.id.list_item_category);
 
         imageView.setImageResource(item.getImageResId());
-        textView.setText(item.getText());
+        textView.setText(item.getTitle());
+        userView.setText(item.getUserString());
+        dateView.setText(item.getDate());
+        categoryView.setText(item.getCategory());
 
         convertView.setOnClickListener(this);
         convertView.setTag(position);

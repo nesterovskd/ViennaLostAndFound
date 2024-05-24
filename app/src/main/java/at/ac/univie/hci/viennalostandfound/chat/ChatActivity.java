@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import at.ac.univie.hci.viennalostandfound.R;
-import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
+import at.ac.univie.hci.viennalostandfound.data.Data;
 import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class ChatActivity extends AppCompatActivity {
@@ -26,8 +26,8 @@ public class ChatActivity extends AppCompatActivity {
     private ChatMessageAdapter adapter;
     private SharedPreferences sharedPreferences;
     private String chatId;
-    private User loggedInUser;
     private static final String MessageKey = "MessageStorageSet_";
+    private Data data = Data.getSingleInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class ChatActivity extends AppCompatActivity {
         ImageButton exitButton = findViewById(R.id.exit_button);
 
         messages = new ArrayList<>();
-        loggedInUser = LoggedInUser.getLoggedInUser();
+        User loggedInUser = data.getLoggedInUser();
         adapter = new ChatMessageAdapter(this, loggedInUser, messages);
         messagesList.setAdapter(adapter);
 

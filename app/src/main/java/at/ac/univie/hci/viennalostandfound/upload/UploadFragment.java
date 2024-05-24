@@ -27,7 +27,7 @@ import java.time.LocalDateTime;
 import at.ac.univie.hci.viennalostandfound.MainActivity;
 import at.ac.univie.hci.viennalostandfound.R;
 import at.ac.univie.hci.viennalostandfound.data.Data;
-import at.ac.univie.hci.viennalostandfound.search.ResultItem;
+import at.ac.univie.hci.viennalostandfound.data.ResultItem;
 
 public class UploadFragment extends Fragment {
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -171,7 +171,7 @@ private Data data= Data.getSingleInstance();
                 return;
             }
 
-            data.addItemDatenbank(new ResultItem(R.drawable.lost_item_2, descriptionText, titleText, filterCategory,filterLocation, LocalDateTime.now().toString(),isFound, "Lisi Knorr" ));
+            data.addItemDatenbank(new ResultItem(R.drawable.lost_item_2, descriptionText, titleText, filterCategory,filterLocation, LocalDateTime.now().toString(),isFound, data.getLoggedInUser()));
             Toast.makeText(getContext(), "Item was uploaded", Toast.LENGTH_SHORT).show();
 
             title.setText("");

@@ -1,5 +1,7 @@
 package at.ac.univie.hci.viennalostandfound.search;
 
+import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatImageButton;
@@ -10,13 +12,19 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import at.ac.univie.hci.viennalostandfound.MainActivity;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 import at.ac.univie.hci.viennalostandfound.R;
+import at.ac.univie.hci.viennalostandfound.chat.ChatActivity;
+import at.ac.univie.hci.viennalostandfound.data.Data;
+import at.ac.univie.hci.viennalostandfound.data.ResultItem;
+import at.ac.univie.hci.viennalostandfound.login.LoginRequestFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,7 +32,7 @@ import at.ac.univie.hci.viennalostandfound.R;
  * create an instance of this fragment.
  */
 public class ItemDetails extends Fragment {
-
+    private Data data = Data.getSingleInstance();
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -102,7 +110,34 @@ public class ItemDetails extends Fragment {
         item_description.setText(item.getDescription());
 
         TextView item_creator = view.findViewById(R.id.item_creator_username);
-        item_creator.setText(item.getCreatorUsername());
+        item_creator.setText(item.getUserString());
+        LinearLayout user_info_layout = view.findViewById(R.id.user_info_layout);
+
+            user_info_layout.setOnClickListener(v -> {
+                if(data.getLoggedInUser() == null){
+                    LoginRequestFragment loginRequestFragment = new LoginRequestFragment();
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.flFragment, loginRequestFragment);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+
+                }else {
+                Intent intent = new Intent(getActivity(), ChatActivity.class);
+
+                // Pass chat ID
+                intent.putExtra("chatId", item.getUser().getId());
+
+                // Pass name of the chat
+                intent.putExtra("chatName", item.getUserString());
+
+                // Pass the profile picture ID
+                intent.putExtra("profilePictureId", item.getUser().getProfilePictureId());
+
+                startActivity(intent);
+                }
+            });
+
 
 
         return view;

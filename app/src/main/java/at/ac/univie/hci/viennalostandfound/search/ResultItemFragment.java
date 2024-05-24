@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -21,6 +19,7 @@ import java.util.List;
 import at.ac.univie.hci.viennalostandfound.MainActivity;
 import at.ac.univie.hci.viennalostandfound.R;
 import at.ac.univie.hci.viennalostandfound.data.Data;
+import at.ac.univie.hci.viennalostandfound.data.ResultItem;
 
 public class ResultItemFragment extends Fragment implements ResultAdapter.OnItemClickListener {
     private ListView listView;

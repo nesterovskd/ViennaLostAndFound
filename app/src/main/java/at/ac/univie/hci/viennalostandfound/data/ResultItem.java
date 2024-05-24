@@ -1,4 +1,6 @@
-package at.ac.univie.hci.viennalostandfound.search;
+package at.ac.univie.hci.viennalostandfound.data;
+
+import at.ac.univie.hci.viennalostandfound.user.User;
 
 public class ResultItem {
     private int img_ID;
@@ -9,8 +11,11 @@ public class ResultItem {
     private String date;
     private boolean found;
 
-    private String creatorUsername;
+    private User user;
 
+    public String getUserString() {
+        return user.getName();
+    }
 
     public ResultItem(int result_img_ID, String result_item_txt) {
         this.img_ID = result_img_ID;
@@ -29,6 +34,10 @@ public class ResultItem {
         return title;
     }
 
+    public User getUser() {
+        return user;
+    }
+
     public String getCategory() {
         return category;
     }
@@ -45,11 +54,8 @@ public class ResultItem {
         return found;
     }
 
-    public String getCreatorUsername() {
-        return creatorUsername;
-    }
 
-    public ResultItem(int img_ID, String description, String title, String category, String location, String date, boolean found, String creatorUsername) {
+    public ResultItem(int img_ID, String description, String title, String category, String location, String date, boolean found, User user) {
         this.img_ID = img_ID;
         this.description = description;
         this.title = title;
@@ -57,7 +63,7 @@ public class ResultItem {
         this.location = location;
         this.date = date;
         this.found = found;
-        this.creatorUsername = creatorUsername;
+        this.user=user;
     }
 
     public int getImageResId() {

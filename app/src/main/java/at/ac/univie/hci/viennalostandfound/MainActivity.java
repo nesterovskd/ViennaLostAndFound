@@ -9,10 +9,6 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import at.ac.univie.hci.viennalostandfound.chat.ChatOverviewFragment;
 import at.ac.univie.hci.viennalostandfound.data.Data;
 import at.ac.univie.hci.viennalostandfound.home.HomeFragment;
@@ -20,13 +16,11 @@ import at.ac.univie.hci.viennalostandfound.login.LoginRegistrationFragment;
 import at.ac.univie.hci.viennalostandfound.login.LoginRequestFragment;
 import at.ac.univie.hci.viennalostandfound.upload.UploadFragment;
 import at.ac.univie.hci.viennalostandfound.search.SearchFragment;
-import at.ac.univie.hci.viennalostandfound.user.LoggedInUser;
-import at.ac.univie.hci.viennalostandfound.user.User;
-import at.ac.univie.hci.viennalostandfound.search.ResultItemFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     public static boolean LOGIN_STATUS = false;
     private BottomNavigationView bottomNavigationView;
+    private Data data = Data.getSingleInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         switch (item.getItemId()) {
             case R.id.home:
                 Bundle bundleHome = new Bundle();
-                bundleHome.putSerializable("loggedInUser", LoggedInUser.getLoggedInUser());
+                bundleHome.putSerializable("loggedInUser", data.getLoggedInUser());
                 homeFragment.setArguments(bundleHome);
 
                 getSupportFragmentManager()
@@ -83,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return true;
 
             case R.id.chat:
-                if (LoggedInUser.getLoggedInUser() != null) {
+                if (data.getLoggedInUser() != null) {
                     // Pass usersList to chatOverviewScreen
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("usersList", Data.getSingleInstance().getUsersList());

@@ -5,6 +5,7 @@ import java.io.Serializable;
 import at.ac.univie.hci.viennalostandfound.R;
 
 public class User implements Serializable {
+    String id;
     private String name;
     private String emailAddress;
     private int profilePictureId;
@@ -16,10 +17,11 @@ public class User implements Serializable {
     private String phoneNumber;
     private String homeAddress;
 
-    public User(String name, String emailAddress, int profilePictureId) {
+    public User(String name, String emailAddress, int profilePictureId, String id) {
         this.name = name;
         this.emailAddress = emailAddress;
         this.profilePictureId = profilePictureId;
+        this.id= id;
     }
 
     public User(String name, String emailAddress) {
@@ -28,17 +30,8 @@ public class User implements Serializable {
         this.profilePictureId = R.drawable.ic_profile_foreground;
     }
 
-    public static User createDummyLoginUser() {
-        User user = new User("Lisi Knorr","lisi.knorr@gmail.com", R.drawable.profile_girl_with_cat);
-        user.setPhoneNumber("+43 6667778495");
-        user.setHomeAddress("Gersthofer Strasse 100/1/2");
-
-        user.setFoundCount("15");
-        user.setLostCount("9");
-        user.setAppreciationCount("12");
-
-        LoggedInUser.setLoggedInUser(user);
-        return user;
+    public String getId() {
+        return id;
     }
 
     public static void setProfileInfoForRegisteredUser(User registeredUser) {

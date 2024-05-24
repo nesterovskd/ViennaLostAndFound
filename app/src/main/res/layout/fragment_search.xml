@@ -9,8 +9,8 @@
 
     <LinearLayout
         android:id="@+id/layout"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
+        android:layout_width="360dp"
+        android:layout_height="630dp"
         android:background="@drawable/viewpager_bkg"
         android:orientation="vertical"
         android:layout_gravity="center"
@@ -30,6 +30,7 @@
                 android:id="@+id/textSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bkg"
                 android:imeOptions="actionSearch"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -57,6 +58,7 @@
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteStandort"
                 android:layout_width="match_parent"
+                android:background="@drawable/edittext_bkg"
                 android:layout_height="wrap_content"
 
                 android:inputType="text" />
@@ -73,6 +75,7 @@
                 android:id="@+id/autoCompleteCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bkg"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,6 +90,7 @@
                 android:id="@+id/editTextDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bkg"
                 android:inputType="date" />
         </com.google.android.material.textfield.TextInputLayout>
 
