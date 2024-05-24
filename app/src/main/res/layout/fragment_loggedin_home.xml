@@ -9,7 +9,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/ligth_lavender"
+        android:background="@color/primary_color"
         tools:context=".homescreen.HomescreenActivity">
 
         <androidx.viewpager2.widget.ViewPager2
@@ -24,7 +24,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/fragment_container"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" >
+        </androidx.viewpager2.widget.ViewPager2>
 
 
         <ImageView
@@ -41,32 +42,41 @@
             app:srcCompat="@drawable/logo_homescreen" />
 
         <TextView
-            android:id="@+id/textView_Homescreen_Greeting"
-            android:layout_width="296dp"
+            android:id="@+id/textView_Homescreen_Greeting_Loggedin"
+            android:layout_width="200dp"
             android:layout_height="37dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="32dp"
-            android:text="Hello, stranger"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="100dp"
+            android:text="Hello, Lisa"
             android:textAppearance="@style/TextAppearance.AppCompat.Display4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
-        <Button
-            android:id="@+id/button_Login_Homescreen"
-            android:layout_width="158dp"
-            android:layout_height="78dp"
-            android:layout_marginStart="125dp"
-            android:layout_marginTop="108dp"
-            android:layout_marginEnd="125dp"
-            android:backgroundTint="@color/lavender"
-            android:clickable="true"
-            android:text="Login/Register"
-            android:textSize="14sp"
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="220dp"
+            android:backgroundTint="#FEFEFE"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:srcCompat="@drawable/ic_action_name" />
+
+        <ImageView
+            android:id="@+id/imageView_home_profile_pic"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="450dp"
+            android:adjustViewBounds="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/profile_girl_with_cat" />
+
 
         <Button
             android:id="@+id/button_Select_Language"
@@ -86,6 +96,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_Login_Homescreen" />
+             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
