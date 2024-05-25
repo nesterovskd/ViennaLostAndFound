@@ -77,7 +77,7 @@ public class ResultItemFragment extends Fragment implements ResultAdapter.OnItem
         filtered_data.clear();
 
 //
-        boolean found = item.isFound();
+        boolean lost = item.isFound();
         String location = item.getLocation();
         String date = item.getDate();
         String category = item.getCategory();
@@ -92,8 +92,14 @@ public class ResultItemFragment extends Fragment implements ResultAdapter.OnItem
                 if ((location.isEmpty() || item.getLocation().equalsIgnoreCase(location)) &&
                         (date.isEmpty() || item.getDate().equalsIgnoreCase(date)) &&
                         (category.isEmpty() || item.getCategory().equalsIgnoreCase(category)) &&
-                        (found == item.isFound()) &&
-                        (item.getText().toLowerCase().contains(search_txt) || item.getDescription().toLowerCase().contains(search_txt)) || search_txt.isEmpty()) {
+                        (lost != item.isFound()) &&
+                        (
+                                (item.getDescription().toLowerCase().contains(search_txt)
+                                        && item.getText().toLowerCase().contains(search_txt))
+                                        || item.getDescription().toLowerCase().contains(search_txt)
+                                        ||item.getText().toLowerCase().contains(search_txt)
+
+                        )) {
                     filtered_data.add(item);
                 }
             }
