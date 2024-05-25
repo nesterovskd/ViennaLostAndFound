@@ -58,13 +58,11 @@ public class LostItemAdapter extends BaseAdapter implements View.OnClickListener
 
         ImageView imageView = convertView.findViewById(R.id.lost_item_image);
         TextView textView = convertView.findViewById(R.id.lost_item_text);
-        TextView userView = convertView.findViewById(R.id.lost_item_user);
         TextView dateView = convertView.findViewById(R.id.lost_item_date);
         TextView categoryView = convertView.findViewById(R.id.lost_item_category);
 
         imageView.setImageResource(item.getImageResId());
         textView.setText(item.getTitle());
-        userView.setText(item.getUserString());
         dateView.setText(item.getDate());
         categoryView.setText(item.getCategory());
 
