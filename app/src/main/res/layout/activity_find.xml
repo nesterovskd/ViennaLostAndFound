@@ -6,96 +6,30 @@
     android:layout_height="match_parent"
     android:background="@color/ligth_lavender"
     tools:context=".login.FindActivity">
+
     <ImageButton
-        android:id="@+id/exit_buttom_from_found"
+        android:id="@+id/exit_button_from_found"
         android:layout_width="30dp"
         android:layout_height="25dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Go back"
         android:src="@drawable/ic_arrow_back_foreground"
-        app:layout_constraintBottom_toBottomOf="@+id/chat_header"
+        app:layout_constraintBottom_toTopOf="@id/found_list_view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/chat_header" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ListView
+        android:id="@+id/found_list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="#f0f0f0"
+        android:scrollbars="horizontal|vertical"
+        app:layout_constraintTop_toBottomOf="@id/exit_button_from_found"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="259dp"
-            android:layout_height="193dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="32dp"
-
-            android:src="@drawable/scarf"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="12dp"
-            android:text="On Mai 25, 2024, I found a blue scarf."
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-        <TextView
-            android:id="@+id/found_scarf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="12dp"
-            android:text="1190, Döblinger Hauptstraße 10"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <ImageView
-            android:id="@+id/found_bottle"
-            android:layout_width="252dp"
-            android:layout_height="193dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="64dp"
-            android:src="@drawable/found_bottle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/found_scarf" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="10dp"
-            android:text="On April 25, 2024, I found a water bottle at the University of Vienna."
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/found_bottle" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="12dp"
-            android:text="1090, Wahringer Straße 29"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

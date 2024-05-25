@@ -1,8 +1,10 @@
 package at.ac.univie.hci.viennalostandfound.data;
 
+import java.io.Serializable;
+
 import at.ac.univie.hci.viennalostandfound.user.User;
 
-public class ResultItem {
+public class ResultItem implements Serializable {
     private int img_ID;
     private String description;
     private String title;

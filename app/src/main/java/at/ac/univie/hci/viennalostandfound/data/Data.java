@@ -11,9 +11,8 @@ public class Data {
     private static Data singleInstance = null;
     List<ResultItem> itemsDatenbank = new ArrayList<ResultItem>();
     List<ResultItem> myLostItems= new ArrayList<ResultItem>();
-    List<ResultItem> myLostFound= new ArrayList<ResultItem>();
 
-
+    List<ResultItem> myFoundItems= new ArrayList<ResultItem>();
     private final List<User> usersList = new ArrayList<>();
     private static User loggedInUser;
     public List<ResultItem> getItemsDatenbank() {
@@ -23,12 +22,15 @@ public class Data {
         itemsDatenbank.add(item);
     }
 
-
-
+    public List<ResultItem> getMyLostItems() {
+        return myLostItems;
+    }
+    public List<ResultItem> getMyFoundItems() {
+        return myFoundItems;
+    }
     public static User getLoggedInUser() {
         return loggedInUser;
     }
-
     public void setLoggedInUser(User loggedInUser) {
         this.loggedInUser = loggedInUser;
     }
@@ -67,9 +69,9 @@ public class Data {
         this.loggedInUser.setAppreciationCount("12");
     }
     private void createDummyData() {
-        //    itemsDatenbank.add(new ResultItem(R.drawable.lost_item_1, "I lost my Wallet", "Wallet"... ));
-       // itemsDatenbank.add(new ResultItem(R.drawable.found_bottle, "Result 2"));
-        //itemsDatenbank.add(new ResultItem(R.drawable.scarf, "Result 3"));
+// itemsDatenbank.add(new ResultItem(R.drawable.lost_item_1, "I lost my Wallet", "Wallet"... ));
+// itemsDatenbank.add(new ResultItem(R.drawable.found_bottle, "Result 2"));
+//itemsDatenbank.add(new ResultItem(R.drawable.scarf, "Result 3"));
 
         itemsDatenbank.add(new ResultItem(R.drawable.lost_item_1, "I lost my Wallet", "Lost Wallet", "Wallet", "Main Street", "2024-05-23", true, usersList.get(0)));
 
@@ -77,15 +79,16 @@ public class Data {
 
         itemsDatenbank.add(new ResultItem(R.drawable.lost_item_3, "Lost phone in the cafeteria", "Lost Phone", "Phone", "Cafeteria", "2024-05-23", true, usersList.get(2)));
 
+        myFoundItems.add(new ResultItem(R.drawable.lost_item_3, "Lost phone in the cafeteria", "Lost Phone", "Phone", "Cafeteria", "2024-05-23", true, usersList.get(2)));
+        myLostItems.add(new ResultItem(R.drawable.lost_item_1, "I lost my Wallet", "Lost Wallet", "Wallet", "Main Street", "2024-05-23", true, usersList.get(0)));
+// itemsDatenbank.add(new ResultItem(R.drawable.lost_item_4, "Found backpack on the bus", "Found Backpack", "Backpack", "Bus", "2024-05-23", false, "User4"));
 
-      //  itemsDatenbank.add(new ResultItem(R.drawable.lost_item_4, "Found backpack on the bus", "Found Backpack", "Backpack", "Bus", "2024-05-23", false, "User4"));
-
-        itemsDatenbank.add(new ResultItem(R.drawable.lost_item_5, "Lost umbrella at the cinema", "Lost Umbrella", "Umbrella", "Cinema", "2024-05-23", true,  usersList.get(1)));
+        itemsDatenbank.add(new ResultItem(R.drawable.lost_item_5, "Lost umbrella at the cinema", "Lost Umbrella", "Umbrella", "Cinema", "2024-05-23", true, usersList.get(1)));
 
 
-      //  itemsDatenbank.add(new ResultItem(R.drawable.lost_item_6, "Found glasses near the library", "Found Glasses", "Glasses", "Library", "2024-05-23", false, "User6"));
+// itemsDatenbank.add(new ResultItem(R.drawable.lost_item_6, "Found glasses near the library", "Found Glasses", "Glasses", "Library", "2024-05-23", false, "User6"));
 
-        itemsDatenbank.add(new ResultItem(R.drawable.lost_item_7, "Lost necklace at the gym", "Lost Necklace", "Necklace", "Gym", "2024-05-23", true,  usersList.get(1)));
+        itemsDatenbank.add(new ResultItem(R.drawable.lost_item_7, "Lost necklace at the gym", "Lost Necklace", "Necklace", "Gym", "2024-05-23", true, usersList.get(1)));
     }
 
 }

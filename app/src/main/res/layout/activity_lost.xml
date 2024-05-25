@@ -6,61 +6,30 @@
     android:layout_height="match_parent"
     android:background="@color/ligth_lavender"
     tools:context=".login.LostActivity">
+
     <ImageButton
-        android:id="@+id/exit_buttom_from_lost"
+        android:id="@+id/exit_button_from_lost"
         android:layout_width="30dp"
         android:layout_height="25dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Go back"
         android:src="@drawable/ic_arrow_back_foreground"
-        app:layout_constraintBottom_toBottomOf="@+id/chat_header"
+        app:layout_constraintBottom_toTopOf="@id/lost_list_view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/chat_header" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ListView
+        android:id="@+id/lost_list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="#f0f0f0"
+        android:scrollbars="horizontal|vertical"
+        app:layout_constraintTop_toBottomOf="@id/exit_button_from_lost"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="333dp"
-            android:layout_height="325dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="32dp"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/currently_lost" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="32dp"
-            android:text="Lost my beloved leather-bound notebook on Friday, May 20th. It holds precious notes and memories.Any information is greatly appreciated."
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="64dp"
-            android:text="1180,Gersthof"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
