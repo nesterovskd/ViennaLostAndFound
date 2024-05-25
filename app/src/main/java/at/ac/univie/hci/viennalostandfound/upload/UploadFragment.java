@@ -90,8 +90,8 @@ private Data data= Data.getSingleInstance();
                 "Animals",
                 "Animal Accessories"};
 
-        String[] locations = {"1. District", "2. District", "3. District", "4. District", "5. District", "6. District", "7. District", "8. District", "9. District", "10. District",
-                "11. District", "12. District", "13. District", "14. District", "15. District", "16. District", "17. District", "18. District", "19. District", "20. District", "21. District", "22. District", "23. District",};
+        String[] locations = {"1\u02e2\u1d57 District", "2\u207f\u1d48 District", "3\u02b3\u1d48 District", "4\u1d57\u02b0 District", "5\u1d57\u02b0 District", "6\u1d57\u02b0 District", "7\u1d57\u02b0 District", "8\u1d57\u02b0 District", "9\u1d57\u02b0 District", "10\u1d57\u02b0 District",
+                "11\u1d57\u02b0 District", "12\u1d57\u02b0 District", "13\u1d57\u02b0 District", "14\u1d57\u02b0 District", "15\u1d57\u02b0 District", "16\u1d57\u02b0 District", "17\u1d57\u02b0 District", "18\u1d57\u02b0 District", "19\u1d57\u02b0 District", "20\u1d57\u02b0 District", "21\u02e2\u1d57 District", "22\u207f\u1d48 District", "23\u02b3\u1d48 District",};
 
         // Adapter für Filter
         AutoCompleteTextView autoCompleteTextViewCategory;
