@@ -27,13 +27,14 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:background="@color/gray"
-            android:padding="2dp"
-            android:textColor="@android:color/white"
-            android:hint="Empty search filter"
-            android:inputType="none"
+            android:background="@drawable/rounded_edit_text"
             android:focusable="false"
-            android:focusableInTouchMode="false" />
+            android:focusableInTouchMode="false"
+            android:hint="Empty Search"
+            android:gravity="center"
+            android:inputType="none"
+            android:padding="2dp"
+            android:textColor="@android:color/white" />
 
         <!-- EditText for Filter 2 -->
         <EditText
@@ -43,13 +44,14 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:background="@color/gray"
-            android:padding="2dp"
-            android:textColor="@android:color/white"
-            android:hint="Empty location"
-            android:inputType="none"
+            android:background="@drawable/rounded_edit_text"
             android:focusable="false"
-            android:focusableInTouchMode="false" />
+            android:focusableInTouchMode="false"
+            android:hint="Empty Location"
+            android:gravity="center"
+            android:inputType="none"
+            android:padding="2dp"
+            android:textColor="@android:color/white" />
 
         <!-- EditText for Filter 3 -->
         <EditText
@@ -59,13 +61,14 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:background="@color/gray"
-            android:padding="2dp"
-            android:textColor="@android:color/white"
-            android:hint="No category chosen"
-            android:inputType="none"
+            android:background="@drawable/rounded_edit_text"
             android:focusable="false"
-            android:focusableInTouchMode="false" />
+            android:focusableInTouchMode="false"
+            android:hint="Empty Category"
+            android:gravity="center"
+            android:inputType="none"
+            android:padding="2dp"
+            android:textColor="@android:color/white" />
 
         <!-- EditText for Filter 4 -->
         <EditText
@@ -75,13 +78,14 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:background="@color/gray"
-            android:padding="2dp"
-            android:textColor="@android:color/white"
-            android:hint="No date filter"
-            android:inputType="none"
+            android:background="@drawable/rounded_edit_text"
             android:focusable="false"
-            android:focusableInTouchMode="false" />
+            android:focusableInTouchMode="false"
+            android:hint="Empty Date"
+            android:gravity="center"
+            android:inputType="none"
+            android:padding="2dp"
+            android:textColor="@android:color/white" />
     </GridLayout>
 
     <Button
