@@ -171,7 +171,16 @@ private Data data= Data.getSingleInstance();
                 return;
             }
 
-            data.addItemDatenbank(new ResultItem(R.drawable.lost_item_2, descriptionText, titleText, filterCategory,filterLocation, LocalDateTime.now().toString(),isFound, data.getLoggedInUser()));
+
+
+            if(isLost){
+                data.addItemLostItems(new ResultItem(R.drawable.insert_default_icon, descriptionText, titleText, filterCategory,filterLocation, LocalDateTime.now().toString(),false, data.getLoggedInUser()));
+                data.addItemDatenbank(new ResultItem(R.drawable.insert_default_icon, descriptionText, titleText, filterCategory,filterLocation, LocalDateTime.now().toString(),true, data.getLoggedInUser()));
+            }else if(isFound){
+                data.addItemFoundItems(new ResultItem(R.drawable.insert_default_icon, descriptionText, titleText, filterCategory,filterLocation, LocalDateTime.now().toString(),true, data.getLoggedInUser()));
+                data.addItemDatenbank(new ResultItem(R.drawable.insert_default_icon, descriptionText, titleText, filterCategory,filterLocation, LocalDateTime.now().toString(),false, data.getLoggedInUser()));
+            }
+
             Toast.makeText(getContext(), "Item was uploaded", Toast.LENGTH_SHORT).show();
 
             title.setText("");
