@@ -68,7 +68,7 @@
             android:gravity="center"
             android:text="Found"
             android:textAlignment="center"
-            app:chipBackgroundColor="@drawable/chip_background_selector" />
+            app:chipBackgroundColor="@color/ligth_lavender" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/lost_chip"
@@ -78,14 +78,14 @@
             android:gravity="center"
             android:text="Lost"
             android:textAlignment="center"
-            app:chipBackgroundColor="@drawable/chip_background_selector" />
+            app:chipBackgroundColor="@color/ligth_lavender" />
 
     </com.google.android.material.chip.ChipGroup>
 
     <Button
         android:id="@+id/upload_done"
-        android:layout_width="252dp"
-        android:layout_height="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="78dp"
         android:layout_marginEnd="78dp"
         android:layout_marginBottom="20dp"

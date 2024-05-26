@@ -25,23 +25,23 @@
                 android:src="@drawable/loginimg"/>
             <EditText
                 android:id="@+id/login_email"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:padding="8dp"
+                android:padding="15dp"
                 android:hint="Email"
                 android:drawableLeft="@drawable/baseline_email_24"
                 android:drawablePadding="8dp"
                 android:background="@drawable/edittext_bkg"/>
 
             <EditText
-                android:layout_width="300dp"
-                android:layout_height="60dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:id="@+id/login_password"
                 android:layout_marginTop="30dp"
-                android:padding="8dp"
+                android:padding="15dp"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:drawableLeft="@drawable/baseline_lock_24"
@@ -51,11 +51,13 @@
 
             <Button
                 android:id="@+id/login_button"
-                android:layout_width="300dp"
-                android:layout_height="70dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/lavender"
+                android:padding="11dp"
+
                 android:text="LOG IN"
                 android:textSize="18dp"
                 app:cornerRadius="30dp" />
