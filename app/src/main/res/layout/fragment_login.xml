@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:padding="15dp"
                 android:hint="Email"
                 android:drawableLeft="@drawable/baseline_email_24"
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:id="@+id/login_password"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:padding="15dp"
                 android:hint="Password"
                 android:inputType="textPassword"
@@ -54,14 +54,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/lavender"
                 android:padding="11dp"
-
                 android:text="LOG IN"
                 android:textSize="18dp"
                 app:cornerRadius="30dp" />
 
+            <TextView
+                android:id="@+id/login_google"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edittext_bkg"
+                android:drawableLeft="@drawable/icons8_google_logo"
+                android:drawablePadding="7dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:hint="Login with Google"
+                android:padding="10dp" />
+            <TextView
+                android:id="@+id/login_instagram"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/edittext_bkg"
+                android:drawableLeft="@drawable/icons8_instagram"
+                android:drawablePadding="7dp"
+                android:textSize="20dp"
+                android:hint="Login with Instagram"
+                android:textStyle="bold"
+                android:padding="10dp" />
 
         </LinearLayout>
     </LinearLayout>
