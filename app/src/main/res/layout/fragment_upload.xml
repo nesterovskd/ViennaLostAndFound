@@ -7,6 +7,7 @@
     android:background="@color/ligth_lavender"
     tools:context=".upload.UploadActivity">
 
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
         android:layout_width="360dp"
@@ -24,7 +25,7 @@
         android:layout_width="120dp"
         android:layout_height="114dp"
         android:layout_marginStart="146dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="146dp"
         android:clickable="true"
         android:tintMode="src_in"
@@ -32,9 +33,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view_pager"
         app:srcCompat="@android:drawable/ic_menu_add"
         tools:visibility="visible" />
+
+    <CheckBox
+        android:id="@+id/upload_ruleCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+    <TextView
+        android:id="@+id/upload_rules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:text="Accept rules"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/upload_ruleCheckbox"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
     <TextView
         android:id="@+id/textView"
@@ -183,5 +206,14 @@
             android:background="@drawable/edittext_bkg"
             android:hint="Add description" />
     </com.google.android.material.textfield.TextInputLayout>
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upload_done" >
+
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

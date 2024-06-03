@@ -11,8 +11,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.chip.Chip;
@@ -21,6 +21,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.time.LocalDateTime;
 
@@ -118,6 +120,11 @@ private Data data= Data.getSingleInstance();
         Button button = view.findViewById(R.id.upload_done);
         button.setOnClickListener((v -> uploadItem(view)));
 
+        TextView rules = view.findViewById((R.id.upload_rules));
+        RulesFragment ruleFragment = new RulesFragment();
+        rules.setOnClickListener(v -> loadFragment(ruleFragment));
+
+
 
         return view;
     }
@@ -188,6 +195,13 @@ private Data data= Data.getSingleInstance();
             return;
         }
 
+    }
+    private void loadFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
 
