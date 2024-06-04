@@ -32,7 +32,7 @@ public class Data {
     public List<ResultItem> getMyFoundItems() {
         return myFoundItems;
     }
-    public static User getLoggedInUser() {
+    public User getLoggedInUser() {
         return loggedInUser;
     }
     public void setLoggedInUser(User loggedInUser) {
@@ -61,7 +61,7 @@ public class Data {
     private void generateDummyUsers() {
         usersList.add(new User("Francesca Marino", "francesca.marino@gmail.com", R.drawable.profile_picture_1, "0"));
         usersList.add(new User("Marcel Meyer", "marcel.meyer@gmail.com", R.drawable.profile_picture_2,"1"));
-        usersList.add(new User("David Sacks", "david.sacks@gmail.com", R.drawable.profile_picture_3,"3"));
+        usersList.add(new User("David Sacks", "david.sacks@gmail.com", R.drawable.profile_picture_3,"2"));
     }
     public void createDummyLoginUser() {
         this.loggedInUser = new User("Lisi Knorr","lisi.knorr@gmail.com", R.drawable.profile_girl_with_cat, "10");
@@ -74,18 +74,36 @@ public class Data {
     }
     private void createDummyData() {
         // TODO
-        List<String> verificationQuestions = new LinkedList<>(Arrays.asList("Q1", "Q2", "Q3"));
+        List<String> verificationQuestionsWallet = new LinkedList<>(
+                Arrays.asList("How much money is in the wallet?",
+                "What is the name of the bank of the credit card found inside the wallet?",
+                "What is the birthday on the ID found in the wallet?"));
 
-       // lost items
-        itemsDatenbank.add(new ResultItem(R.drawable.lost_item_1, "Lost Wallet near Stadtpark.", "Lost Wallet", "Wallets", "1\u02e2\u1d57 District", "2024/04/23", true, usersList.get(0)));
-        itemsDatenbank.add(new ResultItem(R.drawable.lost_item_3, "Lost phone at campus", "Lost Phone", "Electronics", "9\u1d57\u02b0 District", "2024/04/30", true, usersList.get(2), verificationQuestions));
-        itemsDatenbank.add(new ResultItem(R.drawable.lost_item_5, "Lost umbrella", "Lost Umbrella", "Umbrellas", "7\u1d57\u02b0 District", "2024/05/23", true, usersList.get(1), verificationQuestions));
-        itemsDatenbank.add(new ResultItem(R.drawable.lost_glasses, "Lost glasses on bus", "Lost Glasses", "Jewelry", "1\u02e2\u1d57 District", "2024/04/19", true, usersList.get(1)));
+        List<String> verificationQuestionsPhone = new LinkedList<>(
+                Arrays.asList("Describe the lock screen picture.",
+                        "Is there a phone case? If yes, what color?",
+                        "Q3"));
 
-//        // found items
+        List<String> verificationQuestionsUmbrella = new LinkedList<>(
+                Arrays.asList("What brand has the umbrella?",
+                        "What part of the umbrella is broken?",
+                        "Q3"));
+
+        // lost items
+        itemsDatenbank.add(new ResultItem(R.drawable.lost_item_1, "Lost Wallet near Stadtpark.", "Lost Wallet",
+                "Wallets", "1\u02e2\u1d57 District", "2024/04/23", true, usersList.get(0), verificationQuestionsWallet));
+        itemsDatenbank.add(new ResultItem(R.drawable.lost_item_3, "Lost phone at campus", "Lost Phone",
+                "Electronics", "9\u1d57\u02b0 District", "2024/04/30", true, usersList.get(2), verificationQuestionsPhone));
+        itemsDatenbank.add(new ResultItem(R.drawable.lost_item_5, "Lost umbrella", "Lost Umbrella",
+                "Umbrellas", "7\u1d57\u02b0 District", "2024/05/23", true, usersList.get(1), verificationQuestionsUmbrella));
+        itemsDatenbank.add(new ResultItem(R.drawable.lost_glasses, "Lost glasses on bus", "Lost Glasses",
+                "Jewelry", "1\u02e2\u1d57 District", "2024/04/19", true, usersList.get(1)));
+
+        // found items
         itemsDatenbank.add(new ResultItem(R.drawable.found_bottle, "Found keys near the Burggarten Park", "Found Keys", "Keys", "2\u207f\u1d48", "2024/05/20", false, usersList.get(1)));
         itemsDatenbank.add(new ResultItem(R.drawable.lost_item_7, "Found necklace at the FitInn gym", "Found Necklace", "Necklace", "3\u02b3\u1d48", "2024/05/05", false, usersList.get(1)));
-//        // profile lost and found items
+
+        // profile lost and found items
         myFoundItems.add(new ResultItem(R.drawable.found_ring, "Found Ring in the Long Hall pub", "Found Ring", "Jewelry", "9\u1d57\u02b0", "2024/05/23", false, usersList.get(2)));
         myLostItems.add(new ResultItem(R.drawable.lost_phone, "I lost my Phone near Westbahnhof Station", "Lost Phone", "Electronics", "6\u1d57\u02b0", "2024/05/04", true, usersList.get(0)));
 

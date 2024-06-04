@@ -1,5 +1,6 @@
 package at.ac.univie.hci.viennalostandfound.verification;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +41,7 @@ public class VerificationAdapter extends BaseAdapter {
         return position;
     }
 
+    @SuppressLint("SetTextI18n")
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
@@ -50,7 +52,7 @@ public class VerificationAdapter extends BaseAdapter {
         TextView questionText = convertView.findViewById(R.id.verification_question);
         EditText answerField = convertView.findViewById(R.id.verification_answer);
 
-        questionText.setText(questions.get(position));
+        questionText.setText("Question " + (position + 1) + ":\n" + questions.get(position));
         answerFields.add(answerField);
 
         return convertView;

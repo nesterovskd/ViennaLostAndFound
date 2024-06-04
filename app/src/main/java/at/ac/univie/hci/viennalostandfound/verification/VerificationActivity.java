@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import at.ac.univie.hci.viennalostandfound.R;
 import at.ac.univie.hci.viennalostandfound.chat.ChatActivity;
@@ -21,7 +23,9 @@ import at.ac.univie.hci.viennalostandfound.user.User;
 public class VerificationActivity extends AppCompatActivity {
     private String chatId;
     private final Data data = Data.getSingleInstance();
-    User loggedInUser;
+    private User loggedInUser;
+    private String currentItemUserId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,22 +36,18 @@ public class VerificationActivity extends AppCompatActivity {
 
         ListView questionsList = findViewById(R.id.questions_list);
         Button submitButton = findViewById(R.id.submit_button);
+        ImageButton exitButton = findViewById(R.id.exit_button);
 
         chatId = getIntent().getStringExtra("chatId");
 
         // Get the verification questions of the item
         List<String> verificationQuestions = new ArrayList<>();
         for (ResultItem item : data.getItemsDatenbank()) {
-            if (item.getUser().getId() == chatId) {
-                verificationQuestions = item.getVerificationQuestions();
-            }
-        }
+            if (Objects.equals(item.getUser().getId(), chatId)) {
+                verificationQuestions.addAll(item.getVerificationQuestions());
 
-        // TODO
-        if (verificationQuestions.isEmpty()) {
-            verificationQuestions.add("Question 1");
-            verificationQuestions.add("Question 2");
-            verificationQuestions.add("Question 3");
+                currentItemUserId = item.getUser().getId();
+            }
         }
 
         List<EditText> answerFields = new ArrayList<>();
@@ -56,7 +56,7 @@ public class VerificationActivity extends AppCompatActivity {
 
         submitButton.setOnClickListener(v -> {
             if (checkVerificationAnswers()) {
-                loggedInUser.setVerified(true);
+                loggedInUser.addVerificationId(currentItemUserId);
 
                 Intent intent = new Intent(VerificationActivity.this, ChatActivity.class);
                 intent.putExtra("chatId", chatId);
@@ -64,14 +64,14 @@ public class VerificationActivity extends AppCompatActivity {
                 intent.putExtra("profilePictureId", getIntent().getIntExtra("profilePictureId", R.drawable.ic_profile_foreground));
                 startActivity(intent);
                 finish();
-            } else {
-                Toast.makeText(this, "Incorrect answers. Please try again.", Toast.LENGTH_SHORT).show();
             }
         });
+
+        exitButton.setOnClickListener(v -> finish());
     }
 
     private boolean checkVerificationAnswers() {
-        //TODO
+        // for simplicity always true
         return true;
     }
 }

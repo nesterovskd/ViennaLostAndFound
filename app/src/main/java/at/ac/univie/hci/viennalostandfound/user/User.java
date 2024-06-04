@@ -1,6 +1,8 @@
 package at.ac.univie.hci.viennalostandfound.user;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import at.ac.univie.hci.viennalostandfound.R;
 
@@ -17,7 +19,7 @@ public class User implements Serializable {
     private String phoneNumber;
     private String homeAddress;
 
-    private boolean isVerified = false;
+    private List<String> verificationIdsForItems = new ArrayList<>();
 
     public User(String name, String emailAddress, int profilePictureId, String id) {
         this.name = name;
@@ -44,12 +46,12 @@ public class User implements Serializable {
         registeredUser.setHomeAddress("...");
     }
 
-    public boolean isVerified() {
-        return isVerified;
+    public List<String> getVerificationIdsForItems() {
+        return verificationIdsForItems;
     }
 
-    public void setVerified(boolean verified) {
-        isVerified = verified;
+    public void addVerificationId(String id) {
+        this.verificationIdsForItems.add(id);
     }
 
     public String getName() {

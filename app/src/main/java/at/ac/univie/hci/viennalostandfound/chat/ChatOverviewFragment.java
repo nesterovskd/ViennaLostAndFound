@@ -22,7 +22,7 @@ import at.ac.univie.hci.viennalostandfound.verification.VerificationActivity;
 
 public class ChatOverviewFragment extends Fragment {
     private List<User> usersList;
-    private Data data = Data.getSingleInstance();
+    private final Data data = Data.getSingleInstance();
 
     public ChatOverviewFragment() {
         // require a empty public constructor
@@ -52,7 +52,7 @@ public class ChatOverviewFragment extends Fragment {
 
         chatsList.setOnItemClickListener((parent, view1, position, id) -> {
             Intent intent;
-            if (!data.getLoggedInUser().isVerified()) { // TODO add verification for specific item
+            if (!data.getLoggedInUser().getVerificationIdsForItems().contains(String.valueOf(position))) {
                 intent = new Intent(getActivity(), VerificationActivity.class);
             } else {
                 intent = new Intent(getActivity(), ChatActivity.class);
