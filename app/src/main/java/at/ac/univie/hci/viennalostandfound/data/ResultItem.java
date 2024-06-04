@@ -1,6 +1,8 @@
 package at.ac.univie.hci.viennalostandfound.data;
 
 import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
 
 import at.ac.univie.hci.viennalostandfound.user.User;
 
@@ -12,6 +14,7 @@ public class ResultItem implements Serializable {
     private String location;
     private String date;
     private boolean found;
+    private List<String> verificationQuestions = new LinkedList<>();
 
     private User user;
 
@@ -66,6 +69,36 @@ public class ResultItem implements Serializable {
         this.date = date;
         this.found = found;
         this.user=user;
+    }
+
+    /**
+     *
+     * NEW
+     *
+      */
+    public ResultItem(int img_ID, String description, String title, String category, String location, String date,
+                      boolean found, User user, List<String> verificationQuestions) {
+        this.img_ID = img_ID;
+        this.description = description;
+        this.title = title;
+        this.category = category;
+        this.location = location;
+        this.date = date;
+        this.found = found;
+        this.user=user;
+        this.verificationQuestions = verificationQuestions;
+    }
+
+    public List<String> getVerificationQuestions() {
+        return verificationQuestions;
+    }
+
+    public void setVerificationQuestions(List<String> verificationQuestions) {
+        this.verificationQuestions = verificationQuestions;
+    }
+
+    public void addVerificationQuestion(String question) {
+        verificationQuestions.add(question);
     }
 
     public int getImageResId() {

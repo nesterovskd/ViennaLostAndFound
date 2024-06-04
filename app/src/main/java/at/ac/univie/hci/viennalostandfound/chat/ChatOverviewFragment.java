@@ -15,11 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import at.ac.univie.hci.viennalostandfound.R;
+import at.ac.univie.hci.viennalostandfound.data.Data;
 import at.ac.univie.hci.viennalostandfound.user.User;
 import at.ac.univie.hci.viennalostandfound.user.UserAdapter;
+import at.ac.univie.hci.viennalostandfound.verification.VerificationActivity;
 
 public class ChatOverviewFragment extends Fragment {
     private List<User> usersList;
+    private Data data = Data.getSingleInstance();
 
     public ChatOverviewFragment() {
         // require a empty public constructor
@@ -48,17 +51,15 @@ public class ChatOverviewFragment extends Fragment {
         chatsList.setAdapter(adapter);
 
         chatsList.setOnItemClickListener((parent, view1, position, id) -> {
-            Intent intent = new Intent(getActivity(), ChatActivity.class);
-
-            // Pass chat ID
+            Intent intent;
+            if (!data.getLoggedInUser().isVerified()) { // TODO add verification for specific item
+                intent = new Intent(getActivity(), VerificationActivity.class);
+            } else {
+                intent = new Intent(getActivity(), ChatActivity.class);
+            }
             intent.putExtra("chatId", String.valueOf(position));
-
-            // Pass name of the chat
             intent.putExtra("chatName", usersList.get(position).getName());
-
-            // Pass the profile picture ID
             intent.putExtra("profilePictureId", usersList.get(position).getProfilePictureId());
-
             startActivity(intent);
         });
     }

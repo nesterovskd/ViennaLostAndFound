@@ -27,7 +27,7 @@ public class ChatActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private String chatId;
     private static final String MessageKey = "MessageStorageSet_";
-    private Data data = Data.getSingleInstance();
+    private final Data data = Data.getSingleInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

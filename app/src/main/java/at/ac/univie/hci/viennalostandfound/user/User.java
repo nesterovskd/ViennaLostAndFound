@@ -5,7 +5,7 @@ import java.io.Serializable;
 import at.ac.univie.hci.viennalostandfound.R;
 
 public class User implements Serializable {
-    String id;
+    private String id;
     private String name;
     private String emailAddress;
     private int profilePictureId;
@@ -16,6 +16,8 @@ public class User implements Serializable {
 
     private String phoneNumber;
     private String homeAddress;
+
+    private boolean isVerified = false;
 
     public User(String name, String emailAddress, int profilePictureId, String id) {
         this.name = name;
@@ -40,6 +42,14 @@ public class User implements Serializable {
         registeredUser.setAppreciationCount("0");
         registeredUser.setPhoneNumber("...");
         registeredUser.setHomeAddress("...");
+    }
+
+    public boolean isVerified() {
+        return isVerified;
+    }
+
+    public void setVerified(boolean verified) {
+        isVerified = verified;
     }
 
     public String getName() {

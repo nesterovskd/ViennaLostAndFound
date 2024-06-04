@@ -27,16 +27,10 @@
             android:name=".login.LostActivity"
             android:exported="false" />
         <activity
-            android:name=".login.CurrentlyLostActivity"
-            android:exported="false" />
-        <activity
-            android:name=".login.SignLoginAktivity"
-            android:exported="false" />
-        <activity
-            android:name=".search.SearchActivity"
-            android:exported="false" />
-        <activity
             android:name=".chat.ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".verification.VerificationActivity"
             android:exported="false" />
         <activity
             android:name=".home.HomeActivity"

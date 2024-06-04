@@ -14,8 +14,11 @@ import java.util.List;
 import java.util.Objects;
 
 import at.ac.univie.hci.viennalostandfound.R;
+import at.ac.univie.hci.viennalostandfound.data.Data;
+import at.ac.univie.hci.viennalostandfound.data.ResultItem;
 
 public class UserAdapter extends ArrayAdapter<User> {
+    private final Data data = Data.getSingleInstance();
     private final Context context;
     private final List<User> usersList;
     public UserAdapter(@NonNull Context context, List<User> usersList) {
@@ -41,16 +44,24 @@ public class UserAdapter extends ArrayAdapter<User> {
             profilePicture.setImageResource(user.getProfilePictureId());
             chatName.setText(user.getName());
 
-            if (user.getId().equals("0")) {
-                // Francesca
-                itemPicture.setImageResource(R.drawable.lost_item_1);
-            } else if (user.getId().equals("1")) {
-                // Marcel
-                itemPicture.setImageResource(R.drawable.lost_item_5);
+            // Set item picture in chat overview
+            ResultItem item = findResultItemByUserId(user.getId());
+            if (item != null) {
+                itemPicture.setImageResource(item.getImg_ID());
             } else {
-                itemPicture.setImageResource(R.drawable.lost_item_3);
+                itemPicture.setImageResource(R.drawable.ic_search_foreground);
             }
         }
         return convertView;
+    }
+
+    private ResultItem findResultItemByUserId(String userId) {
+        List<ResultItem> itemsDatenbank = data.getItemsDatenbank();
+        for (ResultItem item : itemsDatenbank) {
+            if (item.getUser().getId() == userId) {
+                return item;
+            }
+        }
+        return null;
     }
 }

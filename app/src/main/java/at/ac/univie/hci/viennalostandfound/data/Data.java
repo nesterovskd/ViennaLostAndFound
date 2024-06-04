@@ -2,6 +2,8 @@ package at.ac.univie.hci.viennalostandfound.data;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import at.ac.univie.hci.viennalostandfound.R;
@@ -71,10 +73,13 @@ public class Data {
         this.loggedInUser.setAppreciationCount("12");
     }
     private void createDummyData() {
+        // TODO
+        List<String> verificationQuestions = new LinkedList<>(Arrays.asList("Q1", "Q2", "Q3"));
+
        // lost items
         itemsDatenbank.add(new ResultItem(R.drawable.lost_item_1, "Lost Wallet near Stadtpark.", "Lost Wallet", "Wallets", "1\u02e2\u1d57 District", "2024/04/23", true, usersList.get(0)));
-        itemsDatenbank.add(new ResultItem(R.drawable.lost_item_3, "Lost phone at campus", "Lost Phone", "Electronics", "9\u1d57\u02b0 District", "2024/04/30", true, usersList.get(2)));
-        itemsDatenbank.add(new ResultItem(R.drawable.lost_item_5, "Lost umbrella", "Lost Umbrella", "Umbrellas", "7\u1d57\u02b0 District", "2024/05/23", true, usersList.get(1)));
+        itemsDatenbank.add(new ResultItem(R.drawable.lost_item_3, "Lost phone at campus", "Lost Phone", "Electronics", "9\u1d57\u02b0 District", "2024/04/30", true, usersList.get(2), verificationQuestions));
+        itemsDatenbank.add(new ResultItem(R.drawable.lost_item_5, "Lost umbrella", "Lost Umbrella", "Umbrellas", "7\u1d57\u02b0 District", "2024/05/23", true, usersList.get(1), verificationQuestions));
         itemsDatenbank.add(new ResultItem(R.drawable.lost_glasses, "Lost glasses on bus", "Lost Glasses", "Jewelry", "1\u02e2\u1d57 District", "2024/04/19", true, usersList.get(1)));
 
 //        // found items

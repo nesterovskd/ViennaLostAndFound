@@ -41,6 +41,7 @@ public class ChatMessageAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
+
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
