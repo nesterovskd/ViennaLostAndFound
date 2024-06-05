@@ -73,7 +73,7 @@ public class Data {
         this.loggedInUser.setAppreciationCount("12");
     }
     private void createDummyData() {
-        // TODO
+
         List<String> verificationQuestionsWallet = new LinkedList<>(
                 Arrays.asList("How much money is in the wallet?",
                 "What is the name of the bank of the credit card found inside the wallet?",
@@ -82,12 +82,12 @@ public class Data {
         List<String> verificationQuestionsPhone = new LinkedList<>(
                 Arrays.asList("Describe the lock screen picture.",
                         "Is there a phone case? If yes, what color?",
-                        "Q3"));
+                        "What is your phone number? This can be verified by texting to this number."));
 
         List<String> verificationQuestionsUmbrella = new LinkedList<>(
-                Arrays.asList("What brand has the umbrella?",
-                        "What part of the umbrella is broken?",
-                        "Q3"));
+                Arrays.asList("What brand is the umbrella?",
+                        "Is one part of the umbrella broken? If yes, which one?",
+                        "Does the umbrella have a dark spot on the inside of the panel?"));
 
         // lost items
         itemsDatenbank.add(new ResultItem(R.drawable.lost_item_1, "Lost Wallet near Stadtpark.", "Lost Wallet",
