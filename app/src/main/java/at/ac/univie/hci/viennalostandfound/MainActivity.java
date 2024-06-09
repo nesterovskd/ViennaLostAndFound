@@ -20,7 +20,7 @@ import at.ac.univie.hci.viennalostandfound.search.SearchFragment;
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     public static boolean LOGIN_STATUS = false;
     private BottomNavigationView bottomNavigationView;
-    private Data data = Data.getSingleInstance();
+    private final Data data = Data.getSingleInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 }
 
             case R.id.profile:
+                data.createDummyLoginUser();
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.flFragment, loginRegistrationFragment)

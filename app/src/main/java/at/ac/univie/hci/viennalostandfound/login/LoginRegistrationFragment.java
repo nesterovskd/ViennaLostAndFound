@@ -22,7 +22,7 @@ public class LoginRegistrationFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
     private LoginAdapter adapter;
-    private Data data = Data.getSingleInstance();
+    private final Data data = Data.getSingleInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,10 +34,7 @@ public class LoginRegistrationFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (MainActivity.LOGIN_STATUS) {
-
-            data.createDummyLoginUser();
             loadFragment(new ProfileFragment(data.getLoggedInUser()));
-
         } else {
             MainActivity.LOGIN_STATUS = true;
             tabLayout = view.findViewById(R.id.tab_layout);

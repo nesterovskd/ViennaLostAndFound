@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.material.imageview.ShapeableImageView;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -25,6 +27,7 @@ import at.ac.univie.hci.viennalostandfound.chat.ChatActivity;
 import at.ac.univie.hci.viennalostandfound.data.Data;
 import at.ac.univie.hci.viennalostandfound.data.ResultItem;
 import at.ac.univie.hci.viennalostandfound.login.LoginRequestFragment;
+import at.ac.univie.hci.viennalostandfound.verification.VerificationActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -110,36 +113,32 @@ public class ItemDetails extends Fragment {
         item_description.setText(item.getDescription());
 
         TextView item_creator = view.findViewById(R.id.item_creator_username);
-        item_creator.setText(item.getUserString());
+        ShapeableImageView item_creator_picture = view.findViewById(R.id.item_creator_pic);
+        item_creator_picture.setImageResource(item.getUser().getProfilePictureId());
+        item_creator.setText("Message finder:\n" + item.getUserString());
         LinearLayout user_info_layout = view.findViewById(R.id.user_info_layout);
 
             user_info_layout.setOnClickListener(v -> {
                 if(data.getLoggedInUser() == null){
                     LoginRequestFragment loginRequestFragment = new LoginRequestFragment();
-                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.flFragment, loginRequestFragment);
-                        fragmentTransaction.addToBackStack(null);
-                        fragmentTransaction.commit();
-
-                }else {
-                Intent intent = new Intent(getActivity(), ChatActivity.class);
-
-                // Pass chat ID
-                intent.putExtra("chatId", item.getUser().getId());
-
-                // Pass name of the chat
-                intent.putExtra("chatName", item.getUserString());
-
-                // Pass the profile picture ID
-                intent.putExtra("profilePictureId", item.getUser().getProfilePictureId());
-
-                startActivity(intent);
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.flFragment, loginRequestFragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                } else {
+                    Intent intent;
+                    if (!data.getLoggedInUser().getVerificationIdsForItems().contains(item.getUser().getId())) {
+                        intent = new Intent(getActivity(), VerificationActivity.class);
+                    } else {
+                        intent = new Intent(getActivity(), ChatActivity.class);
+                    }
+                    intent.putExtra("chatId", item.getUser().getId());
+                    intent.putExtra("chatName", item.getUserString());
+                    intent.putExtra("profilePictureId", item.getUser().getProfilePictureId());
+                    startActivity(intent);
                 }
             });
-
-
-
         return view;
     }
     private void navigateToSearchResultFragment() {

@@ -18,7 +18,7 @@ import at.ac.univie.hci.viennalostandfound.R;
 import at.ac.univie.hci.viennalostandfound.data.Data;
 
 public class LoginTabFragment extends Fragment {
-    private Data data = Data.getSingleInstance();
+    private final Data data = Data.getSingleInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,8 +37,7 @@ public class LoginTabFragment extends Fragment {
 
             // Login as user
             // Only check if the email is equal, the password will be ignored
-            if (inputEmailAddress.equals("lisi.knorr@gmail.com")) {
-                //User loggedInUser = User.createDummyLoginUser();
+            if (inputEmailAddress.equals(data.getLoggedInUser().getEmailAddress())) {
                 loadFragment(new ProfileFragment(data.getLoggedInUser()));
             } else {
                 Toast.makeText(getActivity(), "This User does not exist. Please sign up first!", Toast.LENGTH_SHORT).show();

@@ -66,17 +66,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_action_name" />
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageView_home_profile_pic"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="42dp"
             android:layout_marginTop="450dp"
-            android:adjustViewBounds="true"
+            app:shapeAppearanceOverlay="@style/circleImageView"
+            android:foreground="@drawable/profile_picture_border"
+            app:srcCompat="@drawable/profile_girl_with_cat"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/profile_girl_with_cat" />
-
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button_Select_Language"

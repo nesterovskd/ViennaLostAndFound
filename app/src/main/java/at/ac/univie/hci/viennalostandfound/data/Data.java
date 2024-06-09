@@ -45,7 +45,7 @@ public class Data {
     }
 
     public static Data getSingleInstance() {
-        if(singleInstance ==null)
+        if(singleInstance == null)
         {
             singleInstance = new Data();
         }
@@ -64,7 +64,7 @@ public class Data {
         usersList.add(new User("David Sacks", "david.sacks@gmail.com", R.drawable.profile_picture_3,"2"));
     }
     public void createDummyLoginUser() {
-        this.loggedInUser = new User("Lisi Knorr","lisi.knorr@gmail.com", R.drawable.profile_girl_with_cat, "10");
+        this.loggedInUser = new User("Lisi Knorr","test@gmail.com", R.drawable.profile_girl_with_cat, "10");
         this.loggedInUser.setPhoneNumber("+43 6667778495");
         this.loggedInUser.setHomeAddress("Gersthofer Strasse 100/1/2");
 
